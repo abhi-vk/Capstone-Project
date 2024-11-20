@@ -1,11 +1,123 @@
+/* General Container */
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Left Pane (Form Section) */
+.leftPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 3rem;
+  background-color: #ffffff;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.brandHighlight {
+  color: #ff7f00;
+}
+
+.welcome {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #6b6b6b;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.8rem;
-  }
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #bdbdbd;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  margin-top: -0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f00;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #e56a00;
+}
+
+.footer {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.footer .link {
+  color: #ff7f00;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer .link:hover {
+  color: #e56a00;
+}
+
+/* Right Pane (Image Section) */
+.rightPane {
+  flex: 1;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}

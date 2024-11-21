@@ -3,7 +3,7 @@ import styles from "./login.module.css"; // Updated CSS file
 import toast from "react-hot-toast";
 import { login } from "../../services";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/footer"
+import Footer from "../../components/footer";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -64,57 +64,67 @@ export default function Login() {
 
   return (
     <>
-    <div className={styles.container}>
-      <div className={styles.leftPane}>
-        <h1 className={styles.brand}>Order<span className={styles.brandHighlight}>UK</span></h1>
-        <h2 className={styles.welcome}>Welcome Back 👋</h2>
-        <p className={styles.subtitle}>
-          Today is a new day. It's your day. You shape it. Sign in to start ordering.
-        </p>
-        <form className={styles.form} onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-          {formErrors.email && <p className={styles.error}>{formErrors.email}</p>}
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          />
-          {formErrors.password && <p className={styles.error}>{formErrors.password}</p>}
-
-          <button type="submit" disabled={loading}>
-            {loading ? "Signing In..." : "Sign in"}
-          </button>
-        </form>
-        <div className={styles.footer}>
-          <a href="/forgot-password" className={styles.link}>
-            Forgot Password?
-          </a>
-          <p>
-            Don't have an account?{" "}
-            <a href="/register" className={styles.link}>
-              Sign up
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div className={styles.rightPane}>
-        <img
-          src="/path-to-your-image.jpg"
-          alt="Delicious Burgers"
-          className={styles.image}
+      <div className={styles.container}>
+  {/* Left Pane */}
+  <div className={styles.leftPane}>
+    <div className={styles.centerContent}>
+      <img
+        src="/assets/LOGO 1.png"
+        alt="Order App Logo"
+        className={styles.logo}
+      />
+      <h2 className={styles.welcome}>Welcome Back 👋</h2>
+      <p className={styles.subtitle}>
+        Today is a new day. It's your day. You shape it. Sign in to start ordering.
+      </p>
+      <form className={styles.form} onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
+        {formErrors.email && (
+          <p className={styles.error}>{formErrors.email}</p>
+        )}
+        <input
+          type="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        />
+        {formErrors.password && (
+          <p className={styles.error}>{formErrors.password}</p>
+        )}
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing In..." : "Sign in"}
+        </button>
+      </form>
+      <div className={styles.footer}>
+        <p>
+          Don't have an account?{" "}
+          <a href="/register" className={styles.link}>
+            Sign up
+          </a>
+        </p>
       </div>
-      
     </div>
-    <Footer/>
+  </div>
+
+  {/* Right Pane */}
+  <div className={styles.rightPane}>
+    <img
+      src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732172412/foodapp-images/zmhplbpjkkyor9xavngo.png"
+      alt="Delicious Burgers"
+      className={styles.image}
+    />
+  </div>
+</div>
+
+
+
+
+      <Footer />
     </>
   );
 }

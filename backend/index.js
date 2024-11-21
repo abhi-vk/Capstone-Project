@@ -4,6 +4,7 @@ const env = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
+const imageRoutes = require("./routes/imageRoutes");
 app.use(cors());
 env.config();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 app.use("/api/user", userRoutes);
+app.use("/api/images", imageRoutes);
 
 app.listen(PORT, () => {
     console.log("Server is running on port 5000");

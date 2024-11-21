@@ -1,123 +1,144 @@
-/* General Container */
-.container {
-  display: flex;
-  height: 100vh;
+/* Global Font Style */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: #f9f9f9;
-  font-family: 'Arial', sans-serif;
 }
 
-/* Left Pane (Form Section) */
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  background-color: #fff; /* White background for both panes */
+}
+
+/* Left Pane */
 .leftPane {
   flex: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 2rem 3rem;
-  background-color: #ffffff;
+  align-items: center;
+  background-color: #fff;
 }
 
-.brand {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #000000;
-  margin-bottom: 1rem;
+.centerContent {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
 }
 
-.brandHighlight {
-  color: #ff7f00;
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
 }
 
 .welcome {
-  font-size: 1.8rem;
+  text-align: left;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: #6b6b6b;
-  margin-bottom: 2rem;
-  line-height: 1.5;
+  text-align: left;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  max-width: 400px;
 }
 
+/* Form */
 .form {
   width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
 }
 
-input {
-  width: 100%;
-  padding: 10px 15px;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-input::placeholder {
-  color: #bdbdbd;
-}
-
-.error {
-  color: #ff6b6b;
-  font-size: 0.875rem;
-  margin-top: -0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-button {
+.form input {
   width: 100%;
   padding: 12px;
-  background-color: #ff7f00;
-  color: white;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Curved corners for inputs */
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
 }
 
-button:disabled {
-  background-color: #ddd;
+.form input:focus {
+  border: 1px solid #fc8a06;
+}
+
+.form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fc8a06; /* Button color */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Curved corners for button */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #f97804; /* Slightly darker shade for hover */
+}
+
+.form button:disabled {
+  background-color: #ffc680;
   cursor: not-allowed;
 }
 
-button:hover:not(:disabled) {
-  background-color: #e56a00;
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
 }
 
+/* Footer Below Button */
 .footer {
-  margin-top: 1rem;
-  text-align: left;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
 }
 
-.footer .link {
-  color: #ff7f00;
-  text-decoration: none;
+.footer p {
+  margin: 0;
+}
+
+.link {
+  color: #fc8a06;
   font-weight: bold;
-  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-.footer .link:hover {
-  color: #e56a00;
+.link:hover {
+  text-decoration: underline;
 }
 
-/* Right Pane (Image Section) */
+/* Right Pane */
 .rightPane {
-  flex: 1;
-  background-color: #f9f9f9;
+  flex: 1.2;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  padding: 2rem;
+  padding: 0; /* Remove extra padding */
+  box-sizing: border-box;
+  margin-right: 30px;
 }
 
+/* Image */
 .image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Image covers 90% of the right pane */
+  height: 95%; /* Image covers 90% vertically as well */
+  border-radius: 10px; /* Subtle rounded corners */
+  object-fit: cover; /* Makes the image fill the container proportionally */
 }
+
+

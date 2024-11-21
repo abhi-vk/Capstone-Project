@@ -1,0 +1,126 @@
+.navbarWrapper{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 0%;
+}
+
+/* Top Section */
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e8e3e3; /* Light Gray */
+    border-radius: 0 0 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding:0px;
+    margin: 0px 30px;
+    font-size: 0.8rem;
+    color: #333;
+  }
+  .promo{
+    padding-left: 20px;
+  }
+  
+  .promoLink {
+    color: #f39c12; /* Orange */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .cartLocation {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .location {
+    color: #333;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  
+  .changeLocation {
+    font-size: 0.8rem;
+    color: #f39c12;
+    width: 100%;
+    text-decoration: none;
+  }
+  
+  .cartBtn {
+    display: flex; /* Switch layout to flexbox */
+    justify-content: space-between; /* Space between columns */
+    align-items: center; /* Center items vertically */
+    background-color: #27ae60; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 0 10px 10px;
+    height: 100%; /* Occupy 100% of the top section's height */
+    cursor: pointer;
+    width: 100%; /* Adjust width dynamically */
+    gap: 10px; /* Add spacing between columns */
+  }
+  
+  .cartCol {
+    display: flex;
+    flex: 1; /* Ensure equal column width */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Divider between columns */
+  }
+  
+  .cartCol:last-child {
+    border-right: none; /* Remove divider from the last column */
+  }
+  
+  
+  /* Bottom Navbar */
+  .bottomNavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 40px;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .brand {
+    margin-right: 20px; /* Space after the logo */
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-left: 200px;
+  }
+  
+  .navButton {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .navButton:hover,
+  .activeButton {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .loginBtn {
+    width: 25%;
+    background-color: #333; /* Dark */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

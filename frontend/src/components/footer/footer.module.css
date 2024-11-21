@@ -1,148 +1,198 @@
 /* General Footer Styling */
+
+
 .footer {
-    background-color: #f2f2f2;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    padding: 2rem 0;
-    font-size: 0.875rem;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 2rem;
-    gap: 2rem;
-  }
-  
-  /* Left Section */
-  .leftSection {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .logo {
-    width: 150px;
-    margin-bottom: 1rem;
-  }
-  
-  
-  
-  .companyDetails {
-    margin-top: 1rem;
-    color: #666;
-  }
-  
-  /* Middle Section */
-  /* Middle Section */
+  background-color: #d9d9d9; /* Matches your design */
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding: 0rem 0;
+  font-size: 0.7rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem 2rem;
+  gap: 2rem;
+}
+
+/* Left Section */
+.leftSection {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 0.7rem;
+}
+
+.storeLogos {
+  width: 150px;
+  margin: 1rem 0;
+}
+
+.companyDetails {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.7rem;
+}
+
+/* Middle Section */
 .middleSection {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-  }
-  
-  .middleSection h2 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #1a1a1a;
-  }
-  
-  .subscription {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    margin: 1rem 0;
-  }
-  
-  .emailInput {
-    padding: 15px;
-    width: 70%;
-    border: 1px solid #ddd;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-size: 1rem;
-    color: #333;
-    background-color: #f5f5f5;
-  }
-  
-  .emailInput::placeholder {
-    color: #b1b1b1;
-  }
-  
-  .subscribeButton {
-    padding: 15px 30px;
-    background-color: #ff7f00;
-    color: #fff;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .subscribeButton:hover {
-    background-color: #e56a00;
-  }
-  
-  .disclaimer {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 0.5rem;
-  }
-  
-  .disclaimer .link {
-    color: #ff7f00;
-    text-decoration: none;
-  }
-  
-  
-  /* Right Section */
-  .rightSection {
-    display: flex;
-    justify-content: space-between;
-    
-  }
-  
-  .linkColumn h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .linkColumn a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  .linkColumn a:hover {
-    color: #ff7f00;
-  }
-  
-  /* Bottom Bar */
-  .bottomBar {
-    background-color: #1b1b1b;
-    color: #ccc;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-  
-  .footerLinks {
-    margin-top: 0.5rem;
-  }
-  
-  .footerLinks a {
-    margin: 0 1rem;
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footerLinks a:hover {
-    color: #ff7f00;
-  }
-  
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.middleSection h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.emailInput {
+  padding: 15px;
+  width: 80%; /* Make the input field longer than the button */
+  border: none; /* Remove the border */
+  outline: none; /* Remove focus outline */
+  border-radius: 25px 0 0 25px; /* Curved only on the left side */
+  font-size: 0.7rem;
+  background-color: #ddcfcf;
+}
+
+.emailInput::placeholder {
+  color: #2e2828;
+}
+
+
+.subscribeButton {
+  width: 80%;
+  padding: 15px 30px;
+  background-color: #ff7f00;
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Curved on both sides */
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: -25px; /* Pull button slightly to overlap the input */
+}
+
+.subscribeButton:hover {
+  background-color: #e56a00;
+}
+
+
+
+.disclaimer {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.disclaimer .link {
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+/* Social Links */
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socialLinks img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.socialLinks img:hover {
+  transform: scale(1.1);
+}
+
+/* Right Section */
+.rightSection {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.linkColumn {
+  flex: 1;
+  min-width: 150px;
+}
+
+.linkColumn h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.linkColumn a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.linkColumn a:hover {
+  color: #ff7f00;
+}
+
+/* Bottom Bar */
+/* Bottom Bar */
+.bottomBar {
+  background-color: #1b1b1b;
+  color: #ccc;
+  padding: 1rem 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0; /* Ensure no gap */
+  border-top: 1px solid #333; /* Optional separator for styling */
+}
+
+.bottomBar p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.footerLinks {
+  margin: 0; /* Removes spacing */
+  display: flex;
+  gap: 1rem;
+}
+
+.footerLinks a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #ff7f00;
+}
+

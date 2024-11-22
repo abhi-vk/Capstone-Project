@@ -1,5 +1,5 @@
 import './App.css'
-import { Login, Register } from './pages'
+import { Login, Register , Home} from './pages'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home />} />
          
           
         </Routes>

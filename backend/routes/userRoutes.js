@@ -17,8 +17,18 @@ router.post("/signup", async (req, res) => {
         else {
             const hashedPassword = bcrypt.hashSync(password, 10);
             const newUser = await new User({ email, password: hashedPassword, name, phone }).save();
-            const token = jwt.sign({ email }, process.env.JWT_SECRET);
-            return res.status(200).json({ message: "User created successfully", token, id: newUser._id });
+            const token = jwt.sign(
+                { email, name: newUser.name },
+                process.env.JWT_SECRET,
+                { expiresIn: "7d" }
+            );
+    
+            return res.status(200).json({
+                message: "User created successfully",
+                token,
+                id: newUser._id,
+                name: newUser.name,
+            });
         }
     }
     catch (error) {
@@ -40,8 +50,8 @@ router.post("/signin", async (req, res) => {
             res.status(400).json({ message: "Invalid email or password" });
             return
         }
-        const token = jwt.sign({ email }, process.env.JWT_SECRET);
-        return res.status(200).json({ message: "Login successful", token, id: user._id });
+        const token = jwt.sign({ email,name:user.name }, process.env.JWT_SECRET ,{expiresIn:"7d"});
+        return res.status(200).json({ message: "Login successful", token, id: user._id,name: user.name });
     }
     catch (error) {
         console.log(error);

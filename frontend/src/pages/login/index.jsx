@@ -34,7 +34,7 @@ export default function Login() {
     }
 
     // Validate password
-    if (!formData.password || formData.password.length < 8) {
+    if (!formData.password || formData.password.length < 5) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         password: "Password must be at least 8 characters.",
@@ -52,6 +52,7 @@ export default function Login() {
       if (response.token) {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userId", response.id);
+        localStorage.setItem("name", response.name); // Save user's name
         navigate("/");
       }
     } catch (error) {

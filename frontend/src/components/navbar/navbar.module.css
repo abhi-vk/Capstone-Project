@@ -1,78 +1,84 @@
-.navbarWrapper{
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 0%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
 }
+
+
+
 
 /* Top Section */
 .topSection {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e8e3e3; /* Light Gray */
-    border-radius: 0 0 10px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    padding:0px;
-    margin: 0px 30px;
-    font-size: 0.8rem;
-    color: #333;
-  }
-  .promo{
-    padding-left: 20px;
-  }
-  
-  .promoLink {
-    color: #f39c12; /* Orange */
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .cartLocation {
-    display: flex;
-    align-items: center;
-    
-  }
-  
-  .location {
-    color: #333;
-    font-size: 0.8rem;
-    width: 100%;
-  }
-  
-  .changeLocation {
-    font-size: 0.8rem;
-    color: #f39c12;
-    width: 100%;
-    text-decoration: none;
-  }
-  
-  .cartBtn {
-    display: flex; /* Switch layout to flexbox */
-    justify-content: space-between; /* Space between columns */
-    align-items: center; /* Center items vertically */
-    background-color: #27ae60; /* Green */
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 0 0 10px 10px;
-    height: 100%; /* Occupy 100% of the top section's height */
-    cursor: pointer;
-    width: 100%; /* Adjust width dynamically */
-    gap: 10px; /* Add spacing between columns */
-  }
-  
-  .cartCol {
-    display: flex;
-    flex: 1; /* Ensure equal column width */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Divider between columns */
-  }
-  
-  .cartCol:last-child {
-    border-right: none; /* Remove divider from the last column */
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#FAFAFA; /* Light Gray */
+  border-radius: 0 0 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px 0px 30px; /* Consistent padding */
+  margin: 0 30px 0 30px; /* No right margin on the cart */
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.promo {
+  padding-left: 20px;
+}
+
+.promoLink {
+  color: #f39c12; /* Orange */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cartLocation {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing between items */
+  white-space: nowrap; /* Ensure content stays in one line */
+}
+
+.location {
+  color: #333;
+  font-size: 0.8rem;
+}
+
+.changeLocation {
+  font-size: 0.8rem;
+  color: #f39c12;
+  text-decoration: none;
+  margin-right: 0;
+}
+
+.cartBtn {
+  display: flex;
+  align-items: center;
+  background-color: #27ae60; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Adjust padding to fit content */
+  border-radius: 5px; /* Soften corners */
+  cursor: pointer;
+  gap: 20px; /* Add spacing between items */
+  min-width: 180px; /* Set a minimum width */
+  margin-right: 0; /* Ensure no right margin */
+}
+
+.cartCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Add spacing between icon and text */
+}
+
+.cartCol:last-child {
+  border-right: none; /* Remove divider from the last column */
+}
+
   
   /* Bottom Navbar */
   .bottomNavbar {
@@ -93,6 +99,7 @@
     gap: 10px;
     width: 100%;
     padding-left: 200px;
+    padding-right: 10px;
   }
   
   .navButton {
@@ -112,7 +119,22 @@
     background-color: #f39c12;
     color: white;
   }
-  
+  .profileBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 7px 5px;
+    width: 100%;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    font-weight: bold;
+  }
+  .userSection{
+    display: flex;
+    align-items: center;
+    width: 30%;
+  }
   .loginBtn {
     width: 25%;
     background-color: #333; /* Dark */
@@ -124,3 +146,51 @@
     cursor: pointer;
   }
   
+ 
+.userIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* User Name Style */
+.userName {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+
+
+
+/* Dropdown Menu */
+.dropdownMenu {
+  position: absolute;
+  top: 150px; /* Position dropdown below the profile button */
+  right: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 150px; /* Adjust the width to fit the options */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Dropdown Option Button */
+.dropdownOption {
+  padding: 10px 15px;
+  background-color: white;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: #333;
+}
+
+.dropdownOption:hover {
+  background-color: #f0f0f0;
+  color: #f39c12;
+}

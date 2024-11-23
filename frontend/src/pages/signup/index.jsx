@@ -80,7 +80,7 @@ export default function Register() {
           <div className={styles.content}>
             <img src="/assets/LOGO 1.png" alt="Order Logo" className={styles.logo} />
             <h2 className={styles.welcome}>Create an account 👋</h2>
-            <p className={styles.subtitle}>Your personal job finder is here.</p>
+            <p className={styles.subtitle}>Today is a new day. It's your day. You shape it. Sign in to start ordering.</p>
             <form className={styles.form} onSubmit={handleRegister}>
               <input
                 type="text"

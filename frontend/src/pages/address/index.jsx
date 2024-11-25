@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAddresses, addAddress, updateAddress, deleteAddress } from "../../services";
 import styles from "./address.module.css";
-import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 
 const AddressPage = () => {

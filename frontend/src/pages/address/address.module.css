@@ -1,0 +1,160 @@
+
+.addressPage {
+    height: 500px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .addressPage h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .addressContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .addAddressCard,
+  .addressCard {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .addAddressCard:hover,
+  .addressCard:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .addAddressCard p {
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .addressCard h4 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .addressCard p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .addressCard button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .addressCard button:hover {
+    background-color: #0056b3;
+  }
+  
+  .addressCard button:nth-child(2) {
+    background-color: #dc3545;
+  }
+  
+  .addressCard button:nth-child(2):hover {
+    background-color: #b02a37;
+  }
+  
+  /* Modal styling */
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .modal h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+  }
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal input,
+  .modal textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .modal label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .modal button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .modal button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .modal button[type="button"]:hover {
+    background-color: #495057;
+  }
+  
+  /* Overlay for modal background */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  

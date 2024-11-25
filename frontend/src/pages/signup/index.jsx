@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./signup.module.css";
 import toast from "react-hot-toast";
 import { register } from "../../services";
-import Footer from "../../components/footer";
+
 
 export default function Register() {
   const navigate = useNavigate();
@@ -138,7 +138,7 @@ export default function Register() {
           />
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 }

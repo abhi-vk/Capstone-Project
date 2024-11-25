@@ -3,6 +3,7 @@ import { getCategories, getFoodItemsByCategory } from "../../services";
 import styles from "./products.module.css";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
+import Restaurants from '../../components/restaurants';
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
@@ -61,7 +62,8 @@ const Products = () => {
           </div>
         ))}
       </div>
-      <Footer />
+      <Restaurants/>
+      
     </>
   );
 };

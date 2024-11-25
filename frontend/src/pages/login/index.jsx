@@ -125,7 +125,6 @@ export default function Login() {
 
 
 
-      <Footer />
     </>
   );
 }

@@ -1,1 +1,24 @@
-
+/* Ensure the body and html take the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Wrapper for the entire app to make it a flex container */
+  .app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it fills the full height of the viewport */
+  }
+  
+  /* Content wrapper to take all available space above the footer */
+  .content-wrapper {
+    flex: 1; /* This makes the content area take up the remaining space */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer {
+    margin-top: auto; /* This pushes the footer to the bottom */
+  }
+  

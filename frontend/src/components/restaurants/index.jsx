@@ -21,7 +21,7 @@ const Restaurants = () => {
 
   return (
     <div>
-      <h2 className={styles.heading}>Popular Restaurants</h2>
+      <h1 className={styles.heading}>Popular Restaurants</h1>
       <div className={styles.restaurantContainer}>
         {restaurants.map((restaurant) => (
           <div

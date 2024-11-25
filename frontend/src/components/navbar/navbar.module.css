@@ -124,7 +124,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #333;
-    padding: 7px 5px;
+    padding: 7px 1px;
     width: 100%;
     font-size: 0.8rem;
     border-radius: 50px;
@@ -136,14 +136,15 @@ body {
     width: 30%;
   }
   .loginBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 7px 5px;
     width: 25%;
-    background-color: #333; /* Dark */
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    font-size: 0.8rem;
+    border-radius: 50px;
     font-weight: bold;
-    cursor: pointer;
   }
   
  

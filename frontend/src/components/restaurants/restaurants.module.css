@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
+/* Base Styles */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -7,51 +6,90 @@ body {
   background-color: #ffffff;
 }
 
-
 /* Heading */
 .heading {
-    font-size: 1.5rem; /* Adjust size for prominence */
-    font-weight: bold;
-    text-align: left; /* Center the heading */
-    margin: 20px 6rem; /* Add spacing around the heading */
-    color: #333; /* Match with overall theme */
-  }
-  
+  font-size: 1.5rem; /* Keep original heading size */
+  font-weight: bold;
+  text-align: left;
+  margin: 20px 5rem; /* Original margin preserved */
+  padding-left: 20px;
+  color: #333;
+}
 
+/* Restaurant Container */
 .restaurantContainer {
-    display: flex;
-    justify-content: space-between; /* Consistent spacing between cards */
-    align-items: center;
-    flex-wrap: wrap; /* Support wrapping for responsiveness */
-    gap: 15px; /* Reduced space between cards */
-    padding: 20px;
-    margin: 0 5rem; /* Consistent margin */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible grid for responsiveness */
+  gap: 15px; /* Space between cards */
+  padding: 0 20px 20px 20px; /* Original padding retained */
+  margin: 0px 5rem; /* Original margin preserved */
+}
+
+/* Restaurant Card */
+.restaurantCard {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 180px; /* Keep original max-width */
+  height: 100%; /* Maintain height */
+}
+
+.restaurantCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Restaurant Image */
+.restaurantImage {
+  width: 100%;
+  height: 130px; /* Original height retained */
+  object-fit: cover;
+}
+
+/* Restaurant Name */
+.restaurantName {
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #f39c12; /* Orange background */
+  text-transform: capitalize;
+  margin-top: -1px; /* Original alignment preserved */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .restaurantContainer {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid for medium screens */
   }
-  
-  .restaurantCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-align content */
-    width: auto; /* Auto width to fit content */
-    border-radius: 10px; /* Smooth, rounded corners */
-    overflow: hidden; /* Ensure no extra spacing */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .restaurantContainer {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduce card size for tablets */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.3rem; /* Slightly smaller for small screens */
+    text-align: center; /* Center-align heading for mobile */
+  }
+
+  .restaurantContainer {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Compact grid for mobile */
+    gap: 10px; /* Slightly reduce gap */
+  }
+
   .restaurantImage {
-    width: 100%; 
-    height: 120px; /* Set height */
-    object-fit: contain; /* Ensure the logo fits properly */
+    height: 100px; /* Adjust image height for mobile */
   }
-  
+
   .restaurantName {
-    width: 100%; /* Full width for name box */
-    padding: 10px 0; /* Padding for text readability */
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    background-color: #f39c12; /* Orange background matching design */
-    text-transform: capitalize; /* Capitalize names */
+    font-size: 13px; /* Slightly smaller text for mobile */
+    padding: 8px 0;
   }
-  
+}

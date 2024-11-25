@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const imageRoutes = require("./routes/imageRoutes");
 const restaurantRoutes = require("./routes/restaurantRoutes");
 const foodRoutes = require("./routes/foodRoutes");
+const addressRoutes = require("./routes/addressRoutes");
 app.use(cors());
 env.config();
 const PORT = process.env.PORT || 5000;
@@ -21,6 +22,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/images", imageRoutes);
 app.use("/api/restaurants", restaurantRoutes);
 app.use("/api/food", foodRoutes);
+app.use("/api/addresses", addressRoutes);
+
 
 app.listen(PORT, () => {
     console.log("Server is running on port 5000");

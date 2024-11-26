@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { getRestaurants } from '../../services'; // Import the service function
 import styles from './restaurants.module.css';
 
 const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get('http://localhost:5000/api/restaurants')
-      .then((response) => setRestaurants(response.data))
+    // Fetch restaurants using the service function
+    getRestaurants()
+      .then((data) => setRestaurants(data))
       .catch((error) => console.error('Error fetching restaurants:', error));
   }, []);
 
-  // Handle card click
   const handleCardClick = (id) => {
     navigate('/products'); // Navigate to the product page with the restaurant's ID
   };
@@ -27,8 +26,8 @@ const Restaurants = () => {
           <div
             key={restaurant._id}
             className={styles.restaurantCard}
-            onClick={() => handleCardClick(restaurant._id)} // Attach click handler
-            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+            onClick={() => handleCardClick(restaurant._id)}
+            style={{ cursor: 'pointer' }}
           >
             <img
               src={restaurant.imageUrl}

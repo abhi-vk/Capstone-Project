@@ -120,3 +120,16 @@ export const deleteAddress = async (id) => {
   }
   throw new Error('Error deleting address');
 };
+// Fetch all restaurants
+export const getRestaurants = async () => {
+  const response = await fetch(`${BACKEND_URL}/api/restaurants`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (response.status === 200) {
+    return response.json(); // Return restaurants data
+  }
+  throw new Error('Error fetching restaurants');
+};

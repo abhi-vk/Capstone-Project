@@ -38,11 +38,15 @@ body {
 .cartLocation {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px; /* Add spacing between items */
   white-space: nowrap; /* Ensure content stays in one line */
 }
 
 .location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #333;
   font-size: 0.8rem;
 }

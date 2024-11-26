@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getAddresses, addAddress, updateAddress, deleteAddress } from "../../services";
+import {
+  getAddresses,
+  addAddress,
+  updateAddress,
+  deleteAddress,
+} from "../../services";
 import styles from "./address.module.css";
 import Navbar from "../../components/navbar";
 
@@ -61,34 +66,34 @@ const AddressPage = () => {
   };
 
   // Update an existing address
- // Update an existing address
-const handleUpdateAddress = async () => {
-  try {
-    const updatedAddress = await updateAddress(currentEditId, formData);
+  // Update an existing address
+  const handleUpdateAddress = async () => {
+    try {
+      const updatedAddress = await updateAddress(currentEditId, formData);
 
-    // Update the local state with the new address data
-    setAddresses((prevAddresses) =>
-      prevAddresses.map((address) =>
-        address._id === currentEditId ? { ...address, ...updatedAddress } : data.address
-      )
-    );
+      // Update the local state with the new address data
+      setAddresses((prevAddresses) =>
+        prevAddresses.map((address) =>
+          address._id === currentEditId
+            ? { ...address, ...updatedAddress }
+            : data.address
+        )
+      );
 
-    // Optionally keep the modal open with updated data
-    setFormData(updatedAddress);
+      // Optionally keep the modal open with updated data
+      setFormData(updatedAddress);
 
-    // Close the modal
-    setShowModal(false);
-    setIsEditing(false);
-    setCurrentEditId(null);
+      // Close the modal
+      setShowModal(false);
+      setIsEditing(false);
+      setCurrentEditId(null);
 
-    // Automatically refresh the page to fetch latest data
-    window.location.reload();
-  } catch (error) {
-    console.error("Error updating address:", error);
-  }
-};
-
-  
+      // Automatically refresh the page to fetch latest data
+      window.location.reload();
+    } catch (error) {
+      console.error("Error updating address:", error);
+    }
+  };
 
   // Delete an address
   const handleDeleteAddress = async (id) => {
@@ -145,8 +150,12 @@ const handleUpdateAddress = async () => {
               {addresses.map((address) => (
                 <div key={address._id} className={styles.addressCard}>
                   <h4>
-                    {address.name} {address.isDefault && <span>(Default)</span>}
+                    {address.name}
+                    {address.isDefault && (
+                      <span className="defaultBadge">(Default)</span>
+                    )}
                   </h4>
+
                   <p>{address.addressLine}</p>
                   <p>
                     {address.city}, {address.state}, {address.postalCode}

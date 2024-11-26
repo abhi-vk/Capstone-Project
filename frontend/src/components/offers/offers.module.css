@@ -1,0 +1,114 @@
+/* General body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
+  /* Navbar styles */
+  .navBar {
+    padding: 10px 5rem;
+    background-color: orange;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  
+  .tabButton {
+    background-color: transparent;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .activeTab {
+    background-color: black;
+    color: white;
+  }
+  
+  /* Cards container */
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    padding: 0 5rem;
+  }
+  .cardsContainer h3{
+    color: orange;
+  }
+  /* Individual card styling */
+  .card {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardContent {
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    z-index: 2;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 1;
+  }
+  
+  .offerBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .navBar {
+      padding: 10px 1rem;
+    }
+  
+    .cardsContainer {
+      padding: 0 1rem;
+      gap: 15px;
+    }
+  
+    .tabButton {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+    }
+  }
+  

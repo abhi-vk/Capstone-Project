@@ -1,6 +1,6 @@
 /* Container for the entire page */
 .container {
-    padding: 20px;
+    
     margin: 0 5rem 0 5rem;
     background-color: rgb(255, 255, 255); /* Light background */
   }
@@ -21,7 +21,8 @@
   .cardGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
+    gap: 20px; /* Center the cards if they are fewer */
+     
   }
   
   /* Card styling */
@@ -34,11 +35,13 @@
     overflow: hidden;
     transition: transform 0.2s;
     position: relative;
+    max-width: 400px; /* Prevents cards from stretching too much */
   }
   
   .card:hover {
     transform: translateY(-5px);
   }
+  
   
   /* Left section of the card */
   .cardLeft {
@@ -112,4 +115,41 @@
     font-size: 20px;
     font-weight: bold;
   }
-  
+  /* Search Section */
+.searchSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 5rem;
+}
+
+.searchTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchInput {
+  padding: 10px 15px;
+  width: 300px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.searchInput:focus {
+  border-color: #ff7f00;
+  box-shadow: 0 0 5px rgba(255, 127, 0, 0.5);
+}

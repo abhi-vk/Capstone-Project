@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background: #F9F9F9;
+  width: 70%;
+  max-width: 350px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 90vh;
+  padding: 16px;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.shareSection {
+  background: orange;
+  color: #fff;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.shareButton {
+  margin-top: 8px;
+  background: #fff;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header {
+  background: #028643;
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modalHeader {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartItems {
+  margin-bottom: 10px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding: 0px 10px;
+}
+
+.itemDetails {
+  flex: 1;
+}
+
+.itemDescription {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+.itemActions {
+  text-align: right;
+}
+
+.itemPrice {
+  font-weight: bold;
+  color: #333;
+}
+
+.removeButton {
+  background: none;
+  color: red;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.cartSummary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.totalPay {
+  background: orange;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.chooseItemButton {
+  width: 100%;
+  background: #CFCFCF;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid rgb(90, 86, 86) 1px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+.applyButton {
+  background: #CFCFCF;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid rgb(90, 86, 86) 1px;
+  cursor: pointer;
+  
+}
+
+.checkoutSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.deliveryButton,
+.collectionButton {
+  flex: 1;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  background: #CFCFCF;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.checkoutButton {
+  background: #028643;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.2rem;
+}

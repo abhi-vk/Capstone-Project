@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
 .addressPage {
-    height: 500px;
+    height: 500PX;
     padding: 20px;
     font-family: Arial, sans-serif;
   }
@@ -38,7 +45,7 @@
   
   .addAddressCard p {
     font-size: 18px;
-    color: #007bff;
+    color: orange;
   }
   
   .addressCard h4 {
@@ -58,7 +65,7 @@
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: orange;
     color: white;
     font-size: 14px;
     cursor: pointer;
@@ -66,7 +73,7 @@
   }
   
   .addressCard button:hover {
-    background-color: #0056b3;
+    background-color: orange;
   }
   
   .addressCard button:nth-child(2) {
@@ -130,12 +137,12 @@
   }
   
   .modal button[type="submit"] {
-    background-color: #007bff;
+    background-color:orange;
     color: white;
   }
   
   .modal button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: orange;
   }
   
   .modal button[type="button"] {

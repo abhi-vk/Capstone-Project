@@ -1,15 +1,27 @@
 import React from "react";
 import { useCart } from "../../context/cartContext";
 import styles from "./cart.module.css"; // CSS Module
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const CartModal = ({ isVisible, onClose }) => {
     const { cart, removeFromCart } = useCart();
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
     if (!isVisible) return null;
 
     const calculateTotal = () => {
         const itemTotal = cart.reduce((sum, item) => sum + item.totalPrice, 0);
         return itemTotal + 3.0 - 3.0; // Static discount and delivery fees
+    };
+
+    const totalAmount = cart.reduce((sum, item) => sum + item.totalPrice, 0);
+    const isCheckoutEnabled = totalAmount >= 200;
+
+    const handleCheckout = () => {
+        if (isCheckoutEnabled) {
+            // Navigate to the checkout page
+            navigate("/checkout");
+        }
     };
 
     return (
@@ -35,7 +47,9 @@ const CartModal = ({ isVisible, onClose }) => {
                 {/* Header */}
                 <div className={styles.header}>
                     <h2 className={styles.modalHeader}>
-                        <span className={styles.basketIcon}><img src="/assets/Cart.png" alt="Cart Icon" /></span> My Basket
+                        <span className={styles.basketIcon}>
+                            <img src="/assets/Cart.png" alt="Cart Icon" />
+                        </span> My Basket
                     </h2>
                 </div>
 
@@ -45,11 +59,10 @@ const CartModal = ({ isVisible, onClose }) => {
                         <div key={item._id} className={styles.cartItem}>
                             <div className={styles.itemDetails}>
                                 <span className={styles.itemQuantity}>{item.quantity}x</span>
-                               
                             </div>
                             <div>
-                            <span>{item.itemName}</span>
-                            <p className={styles.itemDescription}>{item.description || "No description"}</p>
+                                <span>{item.itemName}</span>
+                                <p className={styles.itemDescription}>{item.description || "No description"}</p>
                             </div>
                             <div className={styles.itemActions}>
                                 <p className={styles.itemPrice}>₹{item.totalPrice.toFixed(2)}</p>
@@ -71,7 +84,7 @@ const CartModal = ({ isVisible, onClose }) => {
                 <div className={styles.cartSummary}>
                     <p>
                         <span>Sub Total:</span>
-                        <span>₹{cart.reduce((sum, item) => sum + item.totalPrice, 0).toFixed(2)}</span>
+                        <span>₹{totalAmount.toFixed(2)}</span>
                     </p>
                     <p>
                         <span>Discounts:</span>
@@ -90,11 +103,11 @@ const CartModal = ({ isVisible, onClose }) => {
                 {/* Actions */}
                 <div className={styles.actions}>
                     <button className={styles.chooseItemButton}>
-                        Choose your free item.. 
+                        Choose your free item..
                         <img src="/assets/downward.png" alt="Arrow" />
                     </button>
                     <button className={styles.applyButton}>
-                        Apply coupon 
+                        Apply coupon
                         <img src="/assets/forward.png" alt="Arrow" />
                     </button>
                 </div>
@@ -114,8 +127,20 @@ const CartModal = ({ isVisible, onClose }) => {
                     </button>
                 </div>
 
-                {/* Checkout */}
-                <button className={styles.checkoutButton}>Checkout!</button>
+                {/* Checkout Button */}
+                <button
+                    className={isCheckoutEnabled ? styles.checkoutButtonEnabled : styles.checkoutButtonDisabled}
+                    disabled={!isCheckoutEnabled}
+                    title={
+                        !isCheckoutEnabled
+                            ? `Minimum delivery is ₹200. You must spend ₹${(200 - totalAmount).toFixed(2)} more for checkout!`
+                            : ""
+                    }
+                    onClick={handleCheckout} // Call handleCheckout to navigate
+                >
+                    Checkout!
+                </button>
+
             </div>
         </div>
     );

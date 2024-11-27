@@ -1,5 +1,5 @@
 import './App.css';
-import { Login, Register, Home, Products, AddressPage } from './pages';
+import { Login, Register, Home, Products, AddressPage, CheckoutPage } from './pages';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Footer from './components/footer'; // Make sure to import your Footer component
@@ -17,6 +17,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/address" element={<AddressPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
             </Routes>
           </div>
           </CartProvider>

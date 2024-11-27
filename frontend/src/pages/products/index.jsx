@@ -7,6 +7,8 @@ import Offers from "../../components/offers";
 import Map from "../../components/map";
 import { useCart } from "../../context/cartContext"; // Importing useCart hook to manage cart state
 import CartModal from "../../components/cartModal"; // Importing CartModal component
+import { ToastContainer, toast } from "react-toastify"; // Import toastify
+import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
@@ -48,11 +50,21 @@ const Products = () => {
   // Function to add item to the cart
   const handleAddToCart = (item) => {
     addToCart(item);
+    toast.success(`${item.itemName} added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
     <>
       <Navbar />
+      <ToastContainer /> {/* Toast container for displaying toasts */}
 
       {/* Search Section */}
       <div className={styles.searchSection}>

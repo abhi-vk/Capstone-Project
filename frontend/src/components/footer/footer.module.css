@@ -22,12 +22,13 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2rem 2rem;
+  padding: 2rem 3rem;
   gap: 2rem;
 }
 
 /* Left Section */
 .leftSection {
+  padding-top: 1rem;
   flex: 1;
   min-width: 250px;
 }
@@ -56,8 +57,9 @@ body {
 }
 
 .middleSection h2 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
   font-weight: bold;
   color: #1a1a1a;
 }
@@ -150,7 +152,7 @@ body {
 }
 
 .linkColumn h3 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #1a1a1a;

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F9F9F9;
+}
+
+/* Checkout Page Container */
+.checkoutContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 20px;
+    margin: 20px 5rem;
+  }
+  
+  /* Left Section: Order Details */
+  .leftSection {
+    width: 60%;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #03081F;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+   h2 {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin: 0 5rem;
+    padding: 20px;
+    font-weight: bold;
+    gap: 15px;
+  }
+  .previous{
+    cursor: pointer;
+  }
+  .orderList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .orderItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #03081F;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .itemImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .itemDetails {
+    flex: 1;
+    margin-left: 15px;
+  }
+  
+  .itemDetails h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .itemPrice {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e7e34; /* Green color for price */
+  }
+  
+  .notesSection {
+    margin-top: 20px;
+  }
+  
+  .notesInput {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #03081F;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  /* Right Section: Payment Details */
+  .rightSection {
+    width: 35%;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #03081F;
+    
+  }
+  
+  .deliveryAddress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .deliveryAddress img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .deliveryAddress p {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .deliveryAddress button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .deliveryAddress button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+      
+  
+  
+  .priceDetails {
+    margin-bottom: 20px;
+  }
+  
+  .priceDetails p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .priceDetails span {
+    font-weight: 600;
+  }
+  
+  .subtotal {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d9534f; /* Red color for the total */
+  }
+  
+  .paymentButton {
+    background: orange;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .paymentButton:hover {
+    background: rgb(194, 127, 1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .checkoutContainer {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .leftSection, .rightSection {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  

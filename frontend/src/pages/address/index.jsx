@@ -7,6 +7,9 @@ import {
 } from "../../services";
 import styles from "./address.module.css";
 import Navbar from "../../components/navbar";
+import { useNavigate } from "react-router-dom";
+ 
+
 
 const AddressPage = () => {
   const [addresses, setAddresses] = useState([]);
@@ -22,7 +25,7 @@ const AddressPage = () => {
     phone: "",
     isDefault: false,
   });
-
+  const navigate = useNavigate();
   // Fetch all addresses
   useEffect(() => {
     const fetchAddresses = async () => {
@@ -126,8 +129,9 @@ const AddressPage = () => {
   return (
     <>
       <Navbar />
+      <h2><img onClick={() =>navigate(-1)} className={styles.previous}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
+
       <div className={styles.addressPage}>
-        <h2>Your Addresses</h2>
         <div className={styles.addressContainer}>
           {addresses.length === 0 ? (
             <div

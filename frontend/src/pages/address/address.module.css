@@ -6,6 +6,18 @@ body {
   padding: 0;
   background-color: #ffffff;
 }
+.previous{
+  cursor: pointer;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  margin: 0 5rem;
+  font-weight: bold;
+  gap: 15px;
+}
 .addressPage {
     height: 500PX;
     padding: 20px;

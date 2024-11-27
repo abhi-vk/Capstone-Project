@@ -229,8 +229,13 @@ body {
 
 
 
-.checkoutButton {
-  background: #028643;
+
+
+.icon {
+  font-size: 1.2rem;
+}
+.checkoutButtonEnabled {
+  background: green;
   color: white;
   border: none;
   padding: 10px;
@@ -242,6 +247,20 @@ body {
   cursor: pointer;
 }
 
-.icon {
-  font-size: 1.2rem;
+.checkoutButtonDisabled {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkoutButtonDisabled:hover {
+  background: rgba(255, 0, 0, 0.8);
 }

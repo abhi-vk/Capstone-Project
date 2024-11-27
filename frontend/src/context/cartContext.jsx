@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     const existingItem = cart.find((cartItem) => cartItem._id === item._id);
-
+  
     if (existingItem) {
       setCart((prevCart) =>
         prevCart.map((cartItem) =>
@@ -33,11 +33,16 @@ export const CartProvider = ({ children }) => {
     } else {
       setCart((prevCart) => [
         ...prevCart,
-        { ...item, quantity: 1, totalPrice: item.price },
+        {
+          ...item,
+          quantity: 1,
+          totalPrice: item.price,
+          imageUrl: item.imageUrl, // Include the imageUrl here
+        },
       ]);
     }
   };
-
+  
   const removeFromCart = (itemId) => {
     setCart((prevCart) =>
       prevCart

@@ -2,7 +2,6 @@ import React from "react";
 import { useCart } from "../../context/cartContext";
 import styles from "./cart.module.css"; // CSS Module
 
-
 const CartModal = ({ isVisible, onClose }) => {
     const { cart, removeFromCart } = useCart();
 
@@ -21,14 +20,22 @@ const CartModal = ({ isVisible, onClose }) => {
 
                 {/* Sharing Section */}
                 <div className={styles.shareSection}>
-                    <p>Share this cart with your friends</p>
-                    <button className={styles.shareButton}>Copy Link</button>
+                    <div className={styles.shareContainer}>
+                        <span className={styles.shareIcon}>
+                            <img src="/assets/share-2.png" alt="Share Icon" />
+                        </span>
+                        <p className={styles.shareText}>Share this cart with your friends</p>
+                        <button className={styles.copyLinkButton}>Copy Link</button>
+                    </div>
                 </div>
+
+                {/* Divider */}
+                <hr className={styles.divider} />
 
                 {/* Header */}
                 <div className={styles.header}>
                     <h2 className={styles.modalHeader}>
-                        <span className={styles.basketIcon}><img src="/assets/Cart.png" /></span> My Basket
+                        <span className={styles.basketIcon}><img src="/assets/Cart.png" alt="Cart Icon" /></span> My Basket
                     </h2>
                 </div>
 
@@ -37,8 +44,12 @@ const CartModal = ({ isVisible, onClose }) => {
                     {cart.map((item) => (
                         <div key={item._id} className={styles.cartItem}>
                             <div className={styles.itemDetails}>
-                                <span>{item.quantity}x {item.itemName}</span>
-                                <p className={styles.itemDescription}>{item.description || "No description"}</p>
+                                <span className={styles.itemQuantity}>{item.quantity}x</span>
+                               
+                            </div>
+                            <div>
+                            <span>{item.itemName}</span>
+                            <p className={styles.itemDescription}>{item.description || "No description"}</p>
                             </div>
                             <div className={styles.itemActions}>
                                 <p className={styles.itemPrice}>₹{item.totalPrice.toFixed(2)}</p>
@@ -46,12 +57,15 @@ const CartModal = ({ isVisible, onClose }) => {
                                     className={styles.removeButton}
                                     onClick={() => removeFromCart(item._id)}
                                 >
-                                    <img src="/assets/Remove.png" />
+                                    <img src="/assets/Remove.png" alt="Remove" />
                                 </button>
                             </div>
                         </div>
                     ))}
                 </div>
+
+                {/* Divider */}
+                <hr className={styles.divider} />
 
                 {/* Summary */}
                 <div className={styles.cartSummary}>
@@ -75,21 +89,27 @@ const CartModal = ({ isVisible, onClose }) => {
 
                 {/* Actions */}
                 <div className={styles.actions}>
-                    <button className={styles.chooseItemButton}>Choose your free item..<img src="/assets/Forward Button.png" /></button>
-                    
-                        
-                        <button className={styles.applyButton}> Apply coupon <img src="/assets/forward.png" /></button>
-                    
+                    <button className={styles.chooseItemButton}>
+                        Choose your free item.. 
+                        <img src="/assets/downward.png" alt="Arrow" />
+                    </button>
+                    <button className={styles.applyButton}>
+                        Apply coupon 
+                        <img src="/assets/forward.png" alt="Arrow" />
+                    </button>
                 </div>
+
+                {/* Divider */}
+                <hr className={styles.divider} />
 
                 {/* Checkout Section */}
                 <div className={styles.checkoutSection}>
                     <button className={styles.deliveryButton}>
-                        <img src="/assets/Delivery Scooter.png" className={styles.icon} />
+                        <img src="/assets/Delivery Scooter.png" className={styles.icon} alt="Delivery" />
                         Delivery Starts at 17:50
                     </button>
                     <button className={styles.collectionButton}>
-                        <img src="/assets/New Store.png" className={styles.icon} />
+                        <img src="/assets/New Store.png" className={styles.icon} alt="Collection" />
                         Collection Starts at 16:50
                     </button>
                 </div>

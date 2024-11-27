@@ -1,4 +1,4 @@
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL.replace(/\/$/, "")
 export const register = async (data) => {
     const response = await fetch(`${BACKEND_URL}/api/user/signup`, {
         method: 'POST',

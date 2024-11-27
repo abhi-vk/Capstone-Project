@@ -8,7 +8,7 @@ const isLoggedIn = (req, res, next) => {
 
     if (token) {
         // Verify the token
-        console.log("Authorization header:", req.headers.authorization);
+        
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
                 if (err.name === 'TokenExpiredError') {
@@ -19,7 +19,7 @@ const isLoggedIn = (req, res, next) => {
             
             // Store the decoded user data in req.user
             req.user = decoded;
-            console.log("Decoded user:", decoded);  // Optional: Remove for production
+           
 
             next();  // Proceed to the next middleware or route handler
         });

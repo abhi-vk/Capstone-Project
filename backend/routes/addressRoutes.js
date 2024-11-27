@@ -8,9 +8,7 @@ router.post("/", isLoggedIn, async (req, res) => {
   try {
     const { name, addressLine, city, state, postalCode, phone, isDefault } = req.body;
 
-    // Log user details and request body for debugging
-    console.log("User ID from token:", req.user._id);
-    console.log("Address data:", req.body);
+   
 
     // If setting as default, unset other default addresses
     if (isDefault) {

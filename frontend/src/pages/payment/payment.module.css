@@ -1,0 +1,121 @@
+.heading{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    margin: 0 5rem;
+    padding: 20px;
+    font-weight: bold;
+    gap: 15px;
+}
+
+.paymentContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    margin: 0 5rem;
+  }
+  
+  .leftSection {
+    width: 60%;
+    
+  }
+  
+  .backIcon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  
+  
+  .method {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #FFE8CE;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .method:hover {
+    border-color: #ff9100;
+  }
+  
+  .selected {
+    border-color: #ff9100;
+    background-color: #fff7e6;
+  }
+  
+  .icon {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+  }
+  
+  .methodIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #ff9100;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    margin-right: 15px;
+  }
+  
+  .addIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #d9d9d9;
+    color: #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  
+  .rightSection {
+    width: 35%;
+    height: 15rem;
+    padding: 10px;
+
+    border: 1px solid #000000;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .summary {
+    margin-bottom: 20px;
+  }
+  
+  .summaryTitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .amount {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .proceedButton {
+    background-color: #ff9100;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .proceedButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

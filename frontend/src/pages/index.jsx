@@ -4,6 +4,8 @@ import Home from './home'
 import Products from './products'
 import AddressPage from './address'
 import CheckoutPage from './checkout'
+import OrderSuccess from './orderSuccess'
+import PaymentPage from './payment'
 
 export {
     Login,
@@ -11,5 +13,7 @@ export {
     Home,
     Products,
     AddressPage,
-    CheckoutPage
+    CheckoutPage,
+    OrderSuccess,
+    PaymentPage
 }

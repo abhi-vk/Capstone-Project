@@ -22,7 +22,7 @@ const Navbar = () => {
         const defaultAddr = addresses.find((addr) => addr.isDefault);
         setDefaultAddress(defaultAddr ? defaultAddr.addressLine : "No address set");
       } catch (error) {
-        setDefaultAddress("Error fetching address");
+        setDefaultAddress(" Default address not set yet");
         console.error("Error fetching addresses:", error);
       }
     };

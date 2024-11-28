@@ -34,7 +34,7 @@ const CheckoutPage = () => {
   return (
     <>
       <Navbar />
-      <h2>
+      <h2 className={styles.prevIcon}>
         <img
           onClick={() => navigate(-1)}
           className={styles.previous}
@@ -89,7 +89,7 @@ const CheckoutPage = () => {
               <span>₹{(calculateSubtotal() + 10).toFixed(2)}</span>
             </p>
           </div>
-          <button className={styles.paymentButton}>Choose Payment Method</button>
+          <button onClick={() => navigate("/payment")} className={styles.paymentButton}>Choose Payment Method</button>
         </div>
       </div>
       <Restaurants />

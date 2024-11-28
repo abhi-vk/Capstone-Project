@@ -9,6 +9,7 @@ import { useCart } from "../../context/cartContext"; // Importing useCart hook t
 import CartModal from "../../components/cartModal"; // Importing CartModal component
 import { ToastContainer, toast } from "react-toastify"; // Import toastify
 import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
+import Review from "../../components/reviews";
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
@@ -127,6 +128,7 @@ const Products = () => {
 
       {/* Map Section */}
       <Map />
+      <Review/>
 
       {/* Restaurants Section */}
       <Restaurants />

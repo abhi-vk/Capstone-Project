@@ -129,7 +129,7 @@ const AddressPage = () => {
   return (
     <>
       <Navbar />
-      <h2><img onClick={() =>navigate(-1)} className={styles.previous}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
+      <h2 className={styles.prevIcon}><img onClick={() =>navigate(-1)} className={styles.previous}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
 
       <div className={styles.addressPage}>
         <div className={styles.addressContainer}>

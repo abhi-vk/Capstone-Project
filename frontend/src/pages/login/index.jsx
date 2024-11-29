@@ -3,7 +3,7 @@ import styles from "./login.module.css"; // Updated CSS file
 import toast from "react-hot-toast";
 import { login } from "../../services";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/footer";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -53,6 +53,8 @@ export default function Login() {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userId", response.id);
         localStorage.setItem("name", response.name); // Save user's name
+        localStorage.setItem("email", response.email || formData.email);
+
         navigate("/");
       }
     } catch (error) {

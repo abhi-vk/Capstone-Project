@@ -10,6 +10,7 @@ import CartModal from "../../components/cartModal"; // Importing CartModal compo
 import { ToastContainer, toast } from "react-toastify"; // Import toastify
 import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
 import Review from "../../components/reviews";
+import DeliveryInfo from "../../components/deliveryInfo";
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
@@ -125,7 +126,7 @@ const Products = () => {
           </div>
         ))}
       </div>
-
+      <DeliveryInfo/>
       {/* Map Section */}
       <Map />
       <Review/>

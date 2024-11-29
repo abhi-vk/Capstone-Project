@@ -133,3 +133,64 @@ export const getRestaurants = async () => {
   }
   throw new Error('Error fetching restaurants');
 };
+
+export const addCard = async (cardDetails) => {
+  const response = await fetch(`${BACKEND_URL}/api/cards`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    body: JSON.stringify(cardDetails)
+  });
+  if (response.status === 201) {
+    return response.json(); // Return newly added card
+  }
+  throw new Error('Error adding card');
+};
+
+// Fetch all cards for the user
+export const getCards = async () => {
+  const response = await fetch(`${BACKEND_URL}/api/cards`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  if (response.status === 200) {
+    return response.json(); // Return all cards
+  }
+  throw new Error('Error fetching cards');
+};
+
+// Edit a card
+export const updateCard = async (id, updatedDetails) => {
+  const response = await fetch(`${BACKEND_URL}/api/cards/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    body: JSON.stringify(updatedDetails)
+  });
+  if (response.status === 200) {
+    return response.json(); // Return updated card details
+  }
+  throw new Error('Error updating card');
+};
+
+// Delete a card
+export const deleteCard = async (id) => {
+  const response = await fetch(`${BACKEND_URL}/api/cards/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  if (response.status === 200) {
+    return response.json(); // Return confirmation of deletion
+  }
+  throw new Error('Error deleting card');
+};

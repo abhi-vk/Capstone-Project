@@ -56,68 +56,121 @@ const reviews = [
 
 const Review = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Responsive handling
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Mobile breakpoint
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNext = () => {
-    if (currentIndex + 3 < reviews.length) {
-      setCurrentIndex(currentIndex + 3);
+    if (currentIndex < reviews.length - 1) {
+      setCurrentIndex(currentIndex + 1);
     }
   };
 
   const handlePrev = () => {
-    if (currentIndex - 3 >= 0) {
-      setCurrentIndex(currentIndex - 3);
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
     }
   };
 
   return (
     <div className={styles.reviewContainer}>
-      <h2 className={styles.title}>Customer Reviews</h2>
+      <div className={styles.title}>
+        <div>Customer Reviews</div>
+        <div className={styles.controls}>
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className={styles.navButton}
+          >
+            &#10094;
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={currentIndex === reviews.length - 1}
+            className={styles.navButton}
+          >
+            &#10095;
+          </button>
+        </div>
+      </div>
+
       <div className={styles.cardsContainer}>
-        {reviews.slice(currentIndex, currentIndex + 3).map((review, index) => (
-          <div key={index} className={styles.card}>
+        {isMobile ? (
+          // Show one review at a time for mobile
+          <div className={styles.card}>
             <div className={styles.profile}>
               <img
-                src={review.image}
-                alt={`${review.name}'s profile`}
+                src={reviews[currentIndex].image}
+                alt={`${reviews[currentIndex].name}'s profile`}
                 className={styles.profileImage}
               />
-              <div>
-                <h4>{review.name}</h4>
-                <p>{review.location}</p>
+              <div className={styles.orangeLine}></div>
+              <div className={styles.profileDetails}>
+                <h4 className={styles.name}>{reviews[currentIndex].name}</h4>
+                <p className={styles.location}>
+                  {reviews[currentIndex].location}
+                </p>
               </div>
             </div>
             <div className={styles.date}>
-      
-      <span className={styles.clockIcon}>
-      <img src="/assets/Time Span.png" alt="Overall Rating" />
-        
-         </span> {review.date}
+              <span className={styles.clockIcon}>🕒</span>{" "}
+              {reviews[currentIndex].date}
             </div>
-            <p className={styles.reviewText}>{review.review}</p>
+            <p className={styles.reviewText}>
+              {reviews[currentIndex].review}
+            </p>
             <div className={styles.rating}>
-              {"★".repeat(review.rating)}
-              {"☆".repeat(5 - review.rating)}
+              {"★".repeat(reviews[currentIndex].rating)}
+              {"☆".repeat(5 - reviews[currentIndex].rating)}
             </div>
           </div>
-        ))}
+        ) : (
+          // Show three reviews for larger screens
+          reviews.slice(currentIndex, currentIndex + 3).map((review, index) => (
+            <div key={index} className={styles.card}>
+              <div className={styles.profile}>
+                <img
+                  src={review.image}
+                  alt={`${review.name}'s profile`}
+                  className={styles.profileImage}
+                />
+                <div className={styles.orangeLine}></div>
+                <div className={styles.profileDetails}>
+                  <h4 className={styles.name}>{review.name}</h4>
+                  <p className={styles.location}>{review.location}</p>
+                </div>
+              </div>
+              <div className={styles.date}>
+                <span className={styles.clockIcon}>🕒</span> {review.date}
+              </div>
+              <p className={styles.reviewText}>{review.review}</p>
+              <div className={styles.rating}>
+                {"★".repeat(review.rating)}
+                {"☆".repeat(5 - review.rating)}
+              </div>
+            </div>
+          ))
+        )}
       </div>
-      <img src="" alt="Overall Rating" className={styles.overallRating} />
-      <div className={styles.controls}>
-        <button
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          className={styles.navButton}
-        >
-          &#10094;
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={currentIndex + 3 >= reviews.length}
-          className={styles.navButton}
-        >
-          &#10095;
-        </button>
-      </div>
+      <div className={styles.overallRatingContainer}>
+  <div className={styles.overallRating}>
+    <span className={styles.ratingValue}>3.4</span>
+    <div className={styles.rating}>
+      {"★".repeat(3)}
+      {"☆".repeat(2)}
+    </div>
+    <span className={styles.totalReviews}>1,360 reviews</span>
+  </div>
+</div>
     </div>
   );
 };

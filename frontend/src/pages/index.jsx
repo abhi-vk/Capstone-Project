@@ -6,6 +6,7 @@ import AddressPage from './address'
 import CheckoutPage from './checkout'
 import OrderSuccess from './orderSuccess'
 import PaymentPage from './payment'
+import Profile from './profile'
 
 export {
     Login,
@@ -15,5 +16,6 @@ export {
     AddressPage,
     CheckoutPage,
     OrderSuccess,
-    PaymentPage
+    PaymentPage,
+    Profile
 }

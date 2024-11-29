@@ -61,6 +61,7 @@ export default function Register() {
       localStorage.setItem("token", response.token);
       localStorage.setItem("userId", response.id);
       localStorage.setItem("name", formData.name);
+      localStorage.setItem("email", response.email || formData.email);
 
       toast.success(response.message);
       navigate("/"); // Redirect to homepage

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAddresses } from "../../services"; // Import the existing service
+import { getAddresses } from "../../services"; 
 import styles from "./navbar.module.css";
-import { useCart } from "../../context/cartContext"; // Import the useCart hook to access the CartContext
-import CartModal from "../cartModal"; // Import CartModal component
+import { useCart } from "../../context/cartContext"; 
+import CartModal from "../cartModal";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -42,6 +42,10 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("name");
+    localStorage.removeItem("email");
+    localStorage.removeItem("gender");
+    localStorage.removeItem("country");
+
     setUserName(null);
     setIsDropdownVisible(false);
   };

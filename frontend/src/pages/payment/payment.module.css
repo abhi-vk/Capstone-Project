@@ -33,7 +33,7 @@
   .method {
     display: flex;
     align-items: center;
-    padding: 5px 15px;
+    padding: 0px 15px;
     margin-bottom: 10px;
     border: 1px solid #FFE8CE;
     border-radius: 20px;
@@ -58,13 +58,19 @@
   .methodIcon {
     width: 30px;
     height: 30px;
-    background-color: #ff9100;
-    color: white;
+    background-color: #FFE8CE;
+    color: #FC8A06;
     border-radius: 50%;
+    font-style: italic;
+    font-weight: bold;
     text-align: center;
     line-height: 30px;
     font-size: 16px;
     margin-right: 15px;
+  }
+  .breakerline{
+    border: 1px solid #000000;
+    margin: 15px 0px;
   }
   
   .addIcon {
@@ -81,26 +87,25 @@
   
   .rightSection {
     width: 35%;
-    height: 15rem;
+    height: 10rem;
     padding: 10px;
-
     border: 1px solid #000000;
     border-radius: 20px;
     text-align: center;
   }
-  
-  .summary {
-    margin-bottom: 20px;
+  .finalPrice{
+    display: flex;
+    justify-content: space-between;
   }
   
+ 
   .summaryTitle {
     font-size: 16px;
     color: #666;
-    margin-bottom: 5px;
   }
   
   .amount {
-    font-size: 28px;
+    font-size: 1rem;
     font-weight: bold;
   }
   
@@ -109,13 +114,13 @@
     color: white;
     padding: 12px 20px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 20px;
+    font-size: 1rem;
     cursor: pointer;
   }
   
   .proceedButton:disabled {
-    background-color: #ccc;
+    background-color: #ff9100;
     cursor: not-allowed;
   }
   

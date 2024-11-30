@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify"; // Import toastify
 import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
 import Review from "../../components/reviews";
 import DeliveryInfo from "../../components/deliveryInfo";
+import HeroCard from "../../components/heroCard";
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
@@ -66,6 +67,7 @@ const Products = () => {
   return (
     <>
       <Navbar />
+      <HeroCard/>
       <ToastContainer /> {/* Toast container for displaying toasts */}
 
       {/* Search Section */}

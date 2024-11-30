@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
 .infoContainer {
     margin: 30px 5rem;
     display: flex;
@@ -38,7 +46,7 @@
   
   ul, p {
     font-size: 15px;
-    line-height: 1.8;
+    line-height:1.8;
     margin: 10px 0; /* Minimal spacing between elements */
   }
   

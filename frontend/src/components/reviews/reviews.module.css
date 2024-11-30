@@ -73,11 +73,11 @@
   }
   
   .orangeLine {
-    height: 50px;
+    height: 55px;
     width: 4px;
     background-color: #fc8a06;
     position: absolute;
-    left: 70px;
+    left: 60px;
   }
   
   .profileImage {

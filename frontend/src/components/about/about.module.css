@@ -1,0 +1,203 @@
+.container {
+    padding: 3rem;
+    background: #D9D9D9;
+    margin: 20px 5rem;
+    max-width: 1400px; /* Limit max width for larger screens */
+    border-radius: 5px;
+  }
+  
+  .headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+  
+  .heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 1rem; /* Add margin for spacing in smaller screens */
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* Wrap items in smaller screens */
+    justify-content: center;
+    margin: 0;
+  }
+  
+  .navItem {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 25px;
+  }
+  
+  .navItem:hover,
+  .navItem:focus {
+    border-color: orange;
+    text-decoration: none;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .questions {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .questionButton {
+    background: #FC8A06;
+    color: black;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  .questionButton:hover {
+    background-color: darkorange;
+  }
+  
+  .questions ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .questions li {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .about {
+    flex: 2;
+  }
+  
+  .infoCards {
+    display: flex;
+    justify-content: space-around;
+    /* Enable wrapping for smaller screens */
+    gap: 1rem;
+  }
+  
+  .card {
+    flex: 1 1 calc(33% - 1rem); /* 3 cards in a row for large screens */
+    max-width: 300px;
+    text-align: center;
+    background: #D9D9D9;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .card h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card p {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .footerText {
+    font-size: 0.875rem;
+    color: #333;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  /* For larger screens (desktops) */
+  @media (min-width: 1200px) {
+    .content {
+      padding: 3rem;
+    }
+  }
+  
+  /* For tablets and smaller laptops */
+  @media (max-width: 992px) {
+    .headerRow {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .content {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+  
+    .infoCards {
+      gap: 1.5rem;
+    }
+  
+    .card {
+      flex: 1 1 calc(50% - 1rem); /* 2 cards in a row */
+    }
+  }
+  
+  /* For mobile screens */
+  @media (max-width: 600px) {
+    .heading {
+      font-size: 1.5rem;
+    }
+  
+    .nav {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .content {
+      padding: 1rem;
+    }
+  
+    .infoCards {
+      flex-direction: column; /* Single column layout for cards */
+      gap: 1rem;
+    }
+  
+    .card {
+      flex: 1 1 100%; /* Full width for each card */
+    }
+  
+    .questionButton {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  
+    .questions li {
+      font-size: 0.9rem;
+    }
+  
+    .footerText {
+      font-size: 0.8rem;
+    }
+  }
+  

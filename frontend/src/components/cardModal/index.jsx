@@ -1,41 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./card.module.css";
-import { addCard } from "../../services"; // Import backend service
+import { addCard } from "../../services";
 
-const CardModal = ({ isOpen, onClose, onSave }) => {
+const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
   const [cardDetails, setCardDetails] = useState({
     lastFourDigits: "",
     expiration: "",
     cvc: "",
     nameOnCard: "",
   });
-  const [isLoading, setIsLoading] = useState(false); // Loading state for save action
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Handle input change
+  useEffect(() => {
+    if (selectedCard) {
+      setCardDetails(selectedCard); // Populate modal with selected card details
+    } else {
+      setCardDetails({
+        lastFourDigits: "",
+        expiration: "",
+        cvc: "",
+        nameOnCard: "",
+      });
+    }
+  }, [selectedCard]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "lastFourDigits" && value.length > 4) return; // Restrict to 4 digits
+    if (name === "lastFourDigits" && value.length > 4) return;
 
     setCardDetails({ ...cardDetails, [name]: value });
   };
 
-  // Save card details to the backend
   const handleSave = async () => {
     if (cardDetails.lastFourDigits.length !== 4) {
       alert("Card number must include 4 digits.");
-      window.location.reload();
       return;
     }
     try {
-      setIsLoading(true); // Start loading
-      const savedCard = await addCard(cardDetails); // Save to the backend
-      onSave(savedCard); // Pass saved card to parent
-      onClose(); // Close modal
+      setIsLoading(true);
+      await onSave(cardDetails); // Call parent onSave
+      onClose();
     } catch (error) {
       alert("Error saving card: " + error.message);
     } finally {
-      setIsLoading(false); // Stop loading
+      setIsLoading(false);
     }
   };
 
@@ -44,7 +53,7 @@ const CardModal = ({ isOpen, onClose, onSave }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContainer}>
-        <h2 className={styles.modalTitle}>Add Card Details</h2>
+        <h2 className={styles.modalTitle}>Add/Edit Card Details</h2>
         <form>
           <div className={styles.formGroup}>
             <label className={styles.label}>Card Number</label>

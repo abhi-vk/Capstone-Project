@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* Hero Card */
+.heroCard {
+    position: relative;
+    margin: 0 5rem;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(24, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+  }
+  
+  /* Background Image with Dark Blue Overlay */
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+    z-index: 0;
+  }
+  
+  /* Main Content */
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 100%;
+    background: #03081FE5;
+  }
+  
+  /* Left Section */
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .iconsRow {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .iconBox {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  /* Right Section */
+  .rightSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  /* Burger Image Container */
+  .burgerImageContainer {
+    position: relative;
+  }
+  
+  .burgerImage {
+    width: 400px;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  /* Rating Box Overlapping Burger */
+  .ratingBox {
+    position: absolute;
+    bottom: -10px;
+    left: -30px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .rating {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7c948;
+  }
+  
+  .stars {
+    display: flex;
+    gap: 2px;
+    margin: 5px 0;
+  }
+  
+  /* Star Styling */
+  .star {
+    width: 16px;
+    height: 16px;
+    background: #f7c948;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
+  
+  .inactiveStar {
+    background: #ddd;
+  }
+  
+  .reviews {
+    font-size: 12px;
+    color: #555;
+  }
+  
+  /* Delivery Details (Bottom-Left Corner) */
+  .deliveryDetails {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    background: #FC8A06;
+    padding: 5px 15px;
+    border-radius: 0 8px 8px 8px;
+    font-size: 14px;
+    color: white;
+    z-index: 4;
+  }
+  
+  /* Media Queries */
+  
+  /* For screens smaller than 1024px (Tablet Landscape) */
+  @media (max-width: 1024px) {
+    .heroCard {
+      margin: 0 2rem;
+      height: 280px;
+    }
+  
+    .burgerImage {
+      width: 300px;
+      height: 200px;
+    }
+  
+    .ratingBox {
+      bottom: -8px;
+      left: 0;
+      padding: 8px;
+      width: 90px;
+    }
+  
+    .title {
+      font-size: 1.8rem;
+    }
+  
+    .subtitle {
+      font-size: 0.9rem;
+    }
+  
+    .iconBox {
+      font-size: 13px;
+    }
+  }
+  
+  /* For screens smaller than 768px (Tablet Portrait) */
+  @media (max-width: 768px) {
+    .heroCard {
+      margin: 0 1rem;
+      height: auto;
+    }
+  
+    .content {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .leftSection {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .rightSection {
+      align-items: center;
+    }
+  
+    .burgerImage {
+      width: 250px;
+      height: 160px;
+    }
+  
+    .ratingBox {
+      bottom: -8px;
+      left: 0;
+      padding: 8px;
+      width: 80px;
+      
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .iconBox {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+  
+  /* For screens smaller than 480px (Mobile) */
+  /* For screens smaller than 480px (Mobile) */
+@media (max-width: 480px) {
+    .heroCard {
+      margin: 0;
+      height: auto;
+      border-radius: 0;
+    }
+  
+    .content {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    /* Move the Burger Image and Rating Box to the Top */
+    .rightSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      order: -1; /* Move to the top of the card */
+      margin-bottom: 20px;
+    }
+  
+    .burgerImage {
+      width: 350px;
+      height: 200px;
+    }
+  
+    .ratingBox {
+      position: relative; /* Adjust position for mobile */
+      left: 125px;
+      
+      margin-top: 10px;
+      padding: 6px;
+      width: 70px;
+      font-size: 12px;
+    
+    }
+  
+    .leftSection {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  
+    .subtitle {
+      font-size: 0.9rem;
+    }
+  
+    .title {
+      font-size: 1.2rem;
+    }
+  
+    .iconBox {
+      font-size: 11px;
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+  
+    .deliveryDetails {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+  }
+  
+  

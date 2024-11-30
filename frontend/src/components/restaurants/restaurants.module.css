@@ -11,7 +11,7 @@ body {
   font-size: 1.5rem; /* Keep original heading size */
   font-weight: bold;
   text-align: left;
-  margin: 60px 5rem; /* Original margin preserved */
+  margin: 70px 5rem 30px 5rem; /* Original margin preserved */
   padding-left: 20px;
   color: #333;
 }
@@ -33,7 +33,7 @@ body {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 180px; /* Keep original max-width */
-  height: 100%; /* Maintain height */
+  height: auto; /* Maintain height */
 }
 
 .restaurantCard:hover {
@@ -44,7 +44,7 @@ body {
 /* Restaurant Image */
 .restaurantImage {
   width: 100%;
-  height: 130px; /* Original height retained */
+  height: auto; /* Original height retained */
   object-fit: cover;
 }
 
@@ -61,27 +61,56 @@ body {
 }
 
 /* Responsive Adjustments */
+
+/* Large Screens (up to 1024px) */
 @media (max-width: 1024px) {
   .restaurantContainer {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid for medium screens */
   }
 }
 
+/* Tablets (up to 768px) */
 @media (max-width: 768px) {
+  .heading {
+    font-size: 1.4rem; /* Slightly smaller heading for tablets */
+    margin: 50px 2rem 20px 2rem; /* Adjust margin for tablets */
+    padding-left: 10px;
+  }
+
   .restaurantContainer {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduce card size for tablets */
+    margin: 0px 2rem; /* Adjust margin for tablets */
+  }
+
+  .restaurantCard {
+    max-width: 150px; /* Adjust card size for tablets */
+  }
+
+  .restaurantImage {
+    height: 120px; /* Adjust image height for tablets */
+  }
+
+  .restaurantName {
+    font-size: 13px; /* Slightly smaller text for tablets */
   }
 }
 
+/* Mobile Screens (up to 480px) */
 @media (max-width: 480px) {
   .heading {
     font-size: 1.3rem; /* Slightly smaller for small screens */
     text-align: center; /* Center-align heading for mobile */
+    margin: 30px 1rem 20px 1rem; /* Adjust margin for mobile */
   }
 
   .restaurantContainer {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Compact grid for mobile */
     gap: 10px; /* Slightly reduce gap */
+    margin: 0px 1rem; /* Reduce margin for mobile */
+  }
+
+  .restaurantCard {
+    max-width: 130px; /* Smaller card size for mobile */
   }
 
   .restaurantImage {
@@ -89,7 +118,7 @@ body {
   }
 
   .restaurantName {
-    font-size: 13px; /* Slightly smaller text for mobile */
+    font-size: 12px; /* Slightly smaller text for mobile */
     padding: 8px 0;
   }
 }

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* General body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+
+.heroContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5rem;
+    padding:10px 2rem;
+    background: #FBFBFB;
+    border: 1px solid #00000033;
+    border-radius: 8px;
+  }
+  
+  .leftSection {
+    flex: 1;
+    margin-right: 2rem;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .highlight {
+    color: #ff7a00;
+  }
+  
+  .subText {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #555;
+  }
+  
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .searchButton {
+    background-color: #ff7a00;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+  }
+  
+  .heroImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 1.5rem;
+  }
+  
+  .rightSection {
+    flex: 1;
+  }
+  
+  .orderStep {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stepNumber {
+    background-color: #ff7a00;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+  }
+  
+  .stepContent {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .orderTitle {
+    font-weight: bold;  
+    margin-bottom: 0.5rem;
+  }
+  .ordering{
+    font-size: 0.1rem;
+    width: 7rem;
+    height: 30px;
+
+  }
+  
+  .orderText {
+    color: #555;
+  }
+  
+  .timestamp {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+  }
+  

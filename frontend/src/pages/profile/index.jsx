@@ -3,7 +3,7 @@ import styles from "./profile.module.css";
 import Navbar from "../../components/navbar";
 import { useNavigate } from "react-router-dom";
 import CardModal from "../../components/cardModal";
-import { getCards, addCard, updateCard } from "../../services"; // Import API functions
+import { getCards, addCard, updateCard } from "../../services";
 
 export default function Profile() {
   const [formData, setFormData] = useState({
@@ -13,18 +13,16 @@ export default function Profile() {
     country: "",
   });
   const [isEditing, setIsEditing] = useState(false);
-  const [savedCards, setSavedCards] = useState([]); // Holds cards fetched from the backend
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
-  const [selectedCard, setSelectedCard] = useState(null); // Card selected for editing
+  const [savedCards, setSavedCards] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch profile and cards on component mount
   useEffect(() => {
-    // Fetch cards from the backend
     const fetchCardsFromDB = async () => {
       try {
-        const cards = await getCards(); // Fetch cards
-        setSavedCards(cards); // Update state
+        const cards = await getCards();
+        setSavedCards(cards);
       } catch (error) {
         console.error("Error fetching cards:", error.message);
       }
@@ -32,7 +30,6 @@ export default function Profile() {
 
     fetchCardsFromDB();
 
-    // Mock fetching profile data (replace with actual API call if needed)
     const name = localStorage.getItem("name") || "";
     const email = localStorage.getItem("email") || "";
     const gender = localStorage.getItem("gender") || "";
@@ -41,40 +38,35 @@ export default function Profile() {
   }, []);
 
   const handleSaveProfile = () => {
-    // Save profile data to localStorage
     localStorage.setItem("name", formData.name);
     localStorage.setItem("email", formData.email);
     localStorage.setItem("gender", formData.gender);
     localStorage.setItem("country", formData.country);
 
-    setIsEditing(false); // Toggle back to view mode
+    setIsEditing(false);
   };
 
   const handleSaveCard = async (cardDetails) => {
     try {
       if (selectedCard) {
-        // Update existing card in the database
         const updatedCard = await updateCard(selectedCard._id, cardDetails);
         setSavedCards((prevCards) =>
           prevCards.map((card) =>
             card._id === selectedCard._id ? updatedCard : card
           )
         );
-        window.location.reload();
       } else {
-        // Add new card to the database
         const newCard = await addCard(cardDetails);
         setSavedCards((prevCards) => [...prevCards, newCard]);
-        
       }
     } catch (error) {
       console.error("Error saving card:", error.message);
     } finally {
-      setIsModalOpen(false); // Close modal
-      setSelectedCard(null); // Reset selected card
+      setIsModalOpen(false);
+      setSelectedCard(null);
     }
   };
-  
+
   return (
     <>
       <Navbar />
@@ -95,90 +87,91 @@ export default function Profile() {
             alt="Profile"
             className={styles.profileImage}
           />
-
-          <div className={styles.formSection}>
-            <div className={styles.formRow}>
-              <div className={styles.inputGroup}>
-                <label>Full Name</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  disabled={!isEditing}
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label>Email Address</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  disabled={!isEditing}
-                />
-              </div>
+          <div className={styles.profileInfo}>
+            <h3>{formData.name}</h3>
+            
+            
+          </div>
+          <div> <button
+              className={styles.editButton}
+              onClick={() => {
+                if (isEditing) handleSaveProfile();
+                else setIsEditing(true);
+              }}
+            >
+              {isEditing ? "Save" : "Edit"}
+            </button></div>
+        </div>
+        
+        <div className={styles.formSection}>
+          <div className={styles.formRow}>
+            <div className={styles.inputGroup}>
+              <label>Full Name</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                disabled={!isEditing}
+              />
             </div>
-
-            <div className={styles.formRow}>
-              <div className={styles.inputGroup}>
-                <label>Gender</label>
-                <input
-                  type="text"
-                  value={formData.gender}
-                  onChange={(e) =>
-                    setFormData({ ...formData, gender: e.target.value })
-                  }
-                  disabled={!isEditing}
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label>Country</label>
-                <input
-                  type="text"
-                  value={formData.country}
-                  onChange={(e) =>
-                    setFormData({ ...formData, country: e.target.value })
-                  }
-                  disabled={!isEditing}
-                />
-              </div>
+            <div className={styles.inputGroup}>
+              <label>Email Address</label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                disabled={!isEditing}
+              />
             </div>
           </div>
-
-          <button
-            className={styles.editButton}
-            onClick={() => {
-              if (isEditing) handleSaveProfile();
-              else setIsEditing(true);
-            }}
-          >
-            {isEditing ? "Save" : "Edit"}
-          </button>
+          <div className={styles.formRow}>
+            <div className={styles.inputGroup}>
+              <label>Gender</label>
+              <input
+                type="text"
+                value={formData.gender}
+                onChange={(e) =>
+                  setFormData({ ...formData, gender: e.target.value })
+                }
+                disabled={!isEditing}
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <label>Country</label>
+              <input
+                type="text"
+                value={formData.country}
+                onChange={(e) =>
+                  setFormData({ ...formData, country: e.target.value })
+                }
+                disabled={!isEditing}
+              />
+            </div>
+          </div>
         </div>
 
         <hr className={styles.divider} />
 
-        {/* Payment Section */}
         <div className={styles.paymentSection}>
           <h3>Saved Payment Methods</h3>
           <div className={styles.cardList}>
             {savedCards.map((card) => (
-              <div key={`${card._id}`} className={styles.card}>
+              <div key={card._id} className={styles.card}>
+                  <img src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732996093/foodapp-images/jmvbmre4bysfzexy1nur.png"/> 
 
                 <div className={styles.cardDetails}>
-                  {/* Mask all but the last 4 digits of the card number */}
-                  <p>{`XXXX XXXX XXXX ${card.lastFourDigits}`}</p>
-                  <span>{card.nameOnCard}</span>{" "}
-                  {/* If you don't need the name, remove this line */}
+                 <p>{`XXXX XXXX XXXX ${card.lastFourDigits}`}</p>
+                  <span>{card.nameOnCard}</span>
                 </div>
                 <button
                   className={styles.editIcon}
                   onClick={() => {
-                    setSelectedCard(card); // Set the selected card for editing
-                    setIsModalOpen(true); // Open modal
+                    setSelectedCard(card);
+                    setIsModalOpen(true);
                   }}
                 >
                   ✏️
@@ -188,8 +181,8 @@ export default function Profile() {
             <button
               className={styles.addCardButton}
               onClick={() => {
-                setSelectedCard(null); // Reset selected card for adding a new card
-                setIsModalOpen(true); // Open modal
+                setSelectedCard(null);
+                setIsModalOpen(true);
               }}
             >
               + Add New Card
@@ -198,12 +191,11 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* CardModal Component */}
       <CardModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSave={handleSaveCard}
-        cardDetails={selectedCard} // Pass selected card for editing
+        cardDetails={selectedCard}
       />
     </>
   );

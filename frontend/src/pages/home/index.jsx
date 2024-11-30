@@ -5,6 +5,7 @@ import Deals from '../../components/deals';
 import HeroSection from '../../components/heroSection';
 import Design from '../../components/design';
 import About from '../../components/about';
+import Data from '../../components/data';
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
         <Restaurants/>
         <Design/>
         <About/>
+        <Data/>
        
     </div>
   )

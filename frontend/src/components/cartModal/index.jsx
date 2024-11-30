@@ -23,7 +23,18 @@ const CartModal = ({ isVisible, onClose }) => {
             navigate("/checkout");
         }
     };
-
+        // Generate and copy the cart link
+        const handleCopyLink = () => {
+            if (cart.length === 0) {
+                alert("Cart is empty! Add items to share the cart.");
+                return;
+            }
+            const encodedCart = encodeURIComponent(JSON.stringify(cart));
+            const shareableLink = `${window.location.origin}/checkout?cart=${encodedCart}`;
+            navigator.clipboard.writeText(shareableLink)
+                .then(() => alert("Link copied to clipboard!"))
+                .catch((error) => console.error("Failed to copy link:", error));
+        };
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modalContainer}>
@@ -37,7 +48,7 @@ const CartModal = ({ isVisible, onClose }) => {
                             <img src="/assets/share-2.png" alt="Share Icon" />
                         </span>
                         <p className={styles.shareText}>Share this cart with your friends</p>
-                        <button className={styles.copyLinkButton}>Copy Link</button>
+                        <button className={styles.copyLinkButton} onClick={handleCopyLink}>Copy Link</button>
                     </div>
                 </div>
 

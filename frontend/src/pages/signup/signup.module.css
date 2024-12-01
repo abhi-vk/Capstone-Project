@@ -67,7 +67,7 @@ input {
   margin: 0 auto; /* Center the inputs */
 }
 
-button {
+.btn {
   padding: 10px;
   background-color: #fc8a06;
   color: #fff;
@@ -80,7 +80,7 @@ button {
   margin: 0 auto; /* Center the button */
 }
 
-button:disabled {
+.btn:disabled {
   background-color: #ffb347;
 }
 
@@ -109,4 +109,30 @@ button:disabled {
   height: 95%;
   border-radius: 10px;
   object-fit: cover;
+}
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column; /* Stack the left and right panes */
+    justify-content: center; /* Center the content vertically */
+  }
+
+  .rightPane {
+    display: none; /* Remove right pane image */
+  }
+
+  .leftPane {
+    justify-content: center; /* Center content on left pane */
+  }
+
+  .content {
+    max-width: 400px; /* Slightly smaller form on smaller screens */
+  }
+
+  .form {
+    gap: 10px; /* Reduce gap between form fields */
+  }
+
+  button {
+    max-width: 350px; /* Make button smaller on mobile */
+  }
 }

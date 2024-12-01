@@ -34,6 +34,7 @@ body {
 }
 
 .closeButton {
+  color: #F9F9F9;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -73,13 +74,17 @@ body {
 }
 .copyLinkButton{
   width: 30%;
+  border-radius: 20px;
+  border: 1px solid white;
   background: #EEEEEE;
   color:orange;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
+  padding: 5px;
   font-weight: bold;
   cursor: pointer;
 }
 .header {
+  
   background: #028643;
   color: white;
   text-align: center;
@@ -89,6 +94,7 @@ body {
 }
 
 .modalHeader {
+  padding: 20px;
   font-size: 1.5rem;
   display: flex;
   gap: 20px;
@@ -185,6 +191,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 20px;
   border: solid rgb(90, 86, 86) 1px;
   cursor: pointer;
   margin-bottom: 10px;
@@ -195,11 +202,13 @@ body {
 
 
 .applyButton {
+  width: 100%;
   background: #F6F6F6;
   color: #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 20px;
   border: solid rgb(90, 86, 86) 1px;
   cursor: pointer;
   
@@ -235,6 +244,10 @@ body {
   font-size: 1.2rem;
 }
 .checkoutButtonEnabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   background: green;
   color: white;
   border: none;
@@ -248,6 +261,10 @@ body {
 }
 
 .checkoutButtonDisabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   background: red;
   color: white;
   border: none;

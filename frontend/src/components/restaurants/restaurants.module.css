@@ -55,7 +55,7 @@ body {
   font-weight: bold;
   text-align: center;
   color: white;
-  background-color: #f39c12; /* Orange background */
+  background-color: #FC8A06; /* Orange background */
   text-transform: capitalize;
   margin-top: -1px; /* Original alignment preserved */
 }
@@ -110,7 +110,7 @@ body {
   }
 
   .restaurantCard {
-    max-width: 130px; /* Smaller card size for mobile */
+    max-width: 140px; /* Smaller card size for mobile */
   }
 
   .restaurantImage {

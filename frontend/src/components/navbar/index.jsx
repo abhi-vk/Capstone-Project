@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAddresses } from "../../services"; 
+import { getAddresses } from "../../services";
 import styles from "./navbar.module.css";
-import { useCart } from "../../context/cartContext"; 
+import { useCart } from "../../context/cartContext";
 import CartModal from "../cartModal";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("Home");
   const [userName, setUserName] = useState(null);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isCartModalVisible, setIsCartModalVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for the collapsible menu
   const [defaultAddress, setDefaultAddress] = useState("Loading address...");
-  const [isCartModalVisible, setIsCartModalVisible] = useState(false); // State to manage the cart modal visibility
   const navigate = useNavigate();
-  const { cart, addToCart, removeFromCart, clearCart } = useCart(); // Access cart context
+  const { cart } = useCart(); // Access cart context
+
+  const menuRef = useRef(null); // Ref for the menu container
 
   useEffect(() => {
     // Fetch the default address
@@ -22,7 +25,7 @@ const Navbar = () => {
         const defaultAddr = addresses.find((addr) => addr.isDefault);
         setDefaultAddress(defaultAddr ? defaultAddr.addressLine : "No address set");
       } catch (error) {
-        setDefaultAddress(" Default address not set yet");
+        setDefaultAddress("Default address not set yet");
         console.error("Error fetching addresses:", error);
       }
     };
@@ -39,36 +42,45 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("name");
-    localStorage.removeItem("email");
-    localStorage.removeItem("gender");
-    localStorage.removeItem("country");
-
+    localStorage.clear();
     setUserName(null);
     setIsDropdownVisible(false);
   };
 
-  const handleLoginSignup = () => {
-    navigate("/register");
-  };
-
   const toggleDropdown = () => {
-    setIsDropdownVisible((prevState) => !prevState);
+    setIsDropdownVisible((prev) => !prev);
   };
 
-  const handleProfile = () => {
-    navigate("/profile");
-    setIsDropdownVisible(false);
-  };
-
-  const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0); // Calculate the total price
-
-  // Function to toggle the cart modal visibility
   const toggleCartModal = () => {
-    setIsCartModalVisible((prevState) => !prevState);
+    setIsCartModalVisible((prev) => !prev);
   };
+
+  const toggleMenu = (e) => {
+    e.stopPropagation(); // Prevent click from propagating to window
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = (e) => {
+    // Close the menu when clicking outside
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0);
+
+  useEffect(() => {
+    // Close menu when clicking outside of the navbar
+    if (isMenuOpen) {
+      window.addEventListener("click", closeMenu);
+    } else {
+      window.removeEventListener("click", closeMenu);
+    }
+
+    return () => {
+      window.removeEventListener("click", closeMenu);
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className={styles.navbarWrapper}>
@@ -82,7 +94,8 @@ const Navbar = () => {
         </span>
         <div className={styles.cartLocation}>
           <span className={styles.location}>
-            <img src="/assets/Location.png" alt="Logo" /> {defaultAddress}
+            <img src="/assets/Location.png" alt="Location" />
+            {defaultAddress}
           </span>
           <a
             href="#"
@@ -91,16 +104,14 @@ const Navbar = () => {
           >
             Change Location
           </a>
-
-          {/* Cart Button */}
           <button className={styles.cartBtn} onClick={toggleCartModal}>
             <div className={styles.cartCol}>
-              <img src="/assets/Cart.png" alt="Logo" />
+              <img src="/assets/Cart.png" alt="Cart" />
               <span>My Cart</span>
             </div>
             <div className={styles.cartCol}>£{totalPrice.toFixed(2)}</div>
             <div className={styles.cartCol}>
-              <img src="/assets/Forward Button.png" alt="Next" />
+              <img src="/assets/Forward Button.png" alt="Forward" />
             </div>
           </button>
         </div>
@@ -112,12 +123,23 @@ const Navbar = () => {
         <div className={styles.brand}>
           <img
             src="/assets/LOGO 1.png"
-            alt="Order.uk Logo"
+            alt="Logo"
             className={styles.logo}
           />
         </div>
+
+        {/* Hamburger Icon for Small Screens */}
+        <div className={styles.hamburgerMenu} onClick={toggleMenu}>
+          <div />
+          <div />
+          <div />
+        </div>
+
         {/* Navigation Links */}
-        <div className={styles.navLinks}>
+        <div
+          className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}
+          ref={menuRef} // Add ref to the navLinks container
+        >
           {["Home", "Special Offers", "Restaurants", "Track Order"].map((tab) => (
             <button
               key={tab}
@@ -130,7 +152,8 @@ const Navbar = () => {
             </button>
           ))}
         </div>
-        {/* Login/Signup or User Info */}
+
+        {/* User Info */}
         {userName ? (
           <div className={styles.userSection}>
             <button className={styles.profileBtn} onClick={toggleDropdown}>
@@ -141,27 +164,19 @@ const Navbar = () => {
               />
               <span className={styles.userName}>Hey, {userName}</span>
             </button>
-
-            {/* Dropdown */}
             {isDropdownVisible && (
               <div className={styles.dropdownMenu}>
-                <button
-                  className={styles.dropdownOption}
-                  onClick={handleProfile}
-                >
+                <button className={styles.dropdownOption} onClick={() => navigate("/profile")}>
                   Profile
                 </button>
-                <button
-                  className={styles.dropdownOption}
-                  onClick={handleLogout}
-                >
+                <button className={styles.dropdownOption} onClick={handleLogout}>
                   Logout
                 </button>
               </div>
             )}
           </div>
         ) : (
-          <button className={styles.loginBtn} onClick={handleLoginSignup}>
+          <button className={styles.loginBtn} onClick={() => navigate("/register")}>
             <img
               src="/assets/Male User.png"
               alt="profile"
@@ -173,10 +188,7 @@ const Navbar = () => {
       </div>
 
       {/* Cart Modal */}
-      <CartModal
-        isVisible={isCartModalVisible}
-        onClose={toggleCartModal}
-      />
+      <CartModal isVisible={isCartModalVisible} onClose={toggleCartModal} />
     </div>
   );
 };

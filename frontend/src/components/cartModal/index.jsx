@@ -149,7 +149,7 @@ const CartModal = ({ isVisible, onClose }) => {
                     }
                     onClick={handleCheckout} // Call handleCheckout to navigate
                 >
-                    Checkout!
+                <img src="assets/checkoutlogo.png"/>  Checkout!
                 </button>
 
             </div>

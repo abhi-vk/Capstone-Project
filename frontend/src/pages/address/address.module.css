@@ -19,7 +19,7 @@ body {
   gap: 15px;
 }
 .addressPage {
-    height: 500PX;
+    height: auto;
     padding: 20px;
     font-family: Arial, sans-serif;
   }

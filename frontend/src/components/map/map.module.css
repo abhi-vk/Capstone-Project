@@ -7,18 +7,17 @@ body {
   background-color: #ffffff;
 }
 
-/* Container to position the map and card */
-/* Container for the map and card */
+
 .mapContainer {
     position: relative;
     height: 400px;
     width: 100%;
-    max-width: 1350px; /* Limit the container width */
-    margin: 0 auto; /* Center the map on the screen */
-    padding: 0 20px; /* Add some padding to avoid touching the edges */
+    max-width: 1350px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
     box-sizing: border-box;
 }
-/* Container for the custom marker (icon + text) */
+
 .customMarker {
     display: flex;
     flex-direction: column;
@@ -26,18 +25,18 @@ body {
     justify-content: center;
 }
 
-/* Circular marker icon */
+
 .roundIcon {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black; /* Black background */
-    width: 50px; /* Adjust size as needed */
+    background-color: black; 
+    width: 50px; 
     height: 50px;
-    border-radius: 50%; /* Makes the background circular */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    border-radius: 50%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     overflow: hidden;
-    border: 2px solid white; /* Optional white border */
+    border: 2px solid white; 
 }
 
 .roundIcon img {
@@ -46,16 +45,16 @@ body {
     object-fit: contain;
 }
 
-/* Text below the marker */
+
 .markerLabel {
     margin-top: 5px;
-    font-size: 14px; /* Adjust text size */
-    color: black; /* Text color */
+    font-size: 14px; 
+    color: black; 
     font-weight: bold;
-    background-color: white; /* Optional: add background for contrast */
-    padding: 2px 6px; /* Add padding for readability */
-    border-radius: 4px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    background-color: white; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 /* Leaflet map styles */
@@ -66,7 +65,7 @@ body {
     overflow: hidden;
 }
 
-/* Floating information card */
+
 .infoCard {
     position: absolute;
     top: 10%;

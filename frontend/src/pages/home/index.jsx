@@ -6,6 +6,7 @@ import HeroSection from '../../components/heroSection';
 import Design from '../../components/design';
 import About from '../../components/about';
 import Data from '../../components/data';
+import Download from '../../components/download';
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <HeroSection/>
         <Deals/>
         <Restaurants/>
+        <Download/>
         <Design/>
         <About/>
         <Data/>

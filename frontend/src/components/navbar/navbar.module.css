@@ -8,8 +8,6 @@ body {
 }
 
 
-
-
 /* Top Section */
 .topSection {
   display: flex;
@@ -25,12 +23,16 @@ body {
   color: #333;
 }
 
-.promo {
-  padding-left: 20px;
-}
+
+  .promo {
+    display: block; /* Default is visible */
+    padding-left: 20px;
+    color: #000000;
+    font-weight: bold;
+  }
 
 .promoLink {
-  color: #f39c12; /* Orange */
+  color: #FC8A06;
   text-decoration: none;
   font-weight: bold;
 }
@@ -53,7 +55,7 @@ body {
 
 .changeLocation {
   font-size: 0.8rem;
-  color: #f39c12;
+  color: #FC8A06;
   text-decoration: none;
   margin-right: 0;
 }
@@ -100,17 +102,18 @@ body {
   
   .navLinks {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
-    padding-left: 200px;
-    padding-right: 10px;
+    padding-left:350px;
+    padding-right: 30px;
+    
   }
   
   .navButton {
     background-color: transparent;
-    color: #333;
+    color: black;
     border: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
     padding: 8px 15px;
@@ -120,7 +123,7 @@ body {
   
   .navButton:hover,
   .activeButton {
-    background-color: #f39c12;
+    background-color: #FC8A06;
     color: white;
   }
   .profileBtn{
@@ -128,6 +131,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #333;
+    border: 1px solid black;
     padding: 7px 1px;
     width: 100%;
     font-size: 0.8rem;
@@ -199,3 +203,156 @@ body {
   background-color: #f0f0f0;
   color: #f39c12;
 }
+
+/* Hamburger Menu */
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburgerMenu div {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+}
+@media (max-width: 1200px) {
+  .promo {
+    display: none; /* Hide promo section */
+  }
+  .brand .logo {
+    width: 150px;
+    height: 100%;
+  }
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinksOpen {
+    display: flex;
+  }
+
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .topSection {
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 0.7rem; /* Smaller font size */
+  }
+  .topSection,
+  .bottomNavbar {
+    margin: 0; /* Remove left and right margins */
+  }
+
+/* Cart Location */
+.cartLocation {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 5px; /* Reduced gap between elements */
+  text-align: center;
+}
+
+
+
+.location {
+  text-align: center;
+}
+
+.changeLocation {
+  margin-left: 10px;
+  color: orange;
+  cursor: pointer;
+}
+
+.cartBtn {
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.cartCol {
+  margin: 0 5px;
+}
+
+/* Bottom Navbar */
+.bottomNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+}
+
+.navLinks {
+  display: none;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navLinksOpen {
+  display: flex;
+}
+
+.hamburgerMenu {
+  display: flex;
+}
+
+.topSection,
+.bottomNavbar {
+  margin: 0;
+}
+
+.brand .logo {
+  width: 80px; /* Adjust logo size */
+}
+
+.navButton {
+  font-size: 1rem; /* Larger text for better readability */
+  padding: 10px;
+}
+
+.userSection {
+  width: 40%;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.loginBtn {
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
+}
+}
+

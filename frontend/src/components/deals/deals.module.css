@@ -15,7 +15,7 @@ body {
 
 /* Discount text */
 .discount {
-  color: orange;
+  color: #FC8A06;
 }
 
 /* Navigation container */
@@ -53,9 +53,9 @@ body {
 }
 
 .active {
-  border: 1px solid orange;
+  border: 1px solid #FC8A06;
   border-radius: 15px;
-  color: orange;
+  color: #FC8A06;
   font-weight: bold;
 }
 
@@ -93,7 +93,7 @@ body {
   top: 10px;
   right: 10px;
   background: #000;
-  color: orange;
+  color: #FC8A06;
   font-size: 16px;
   font-weight: bold;
   padding: 5px 10px;
@@ -123,7 +123,7 @@ body {
 
 /* Restaurant Text */
 .restaurantText {
-  color: orange;
+  color: #FC8A06;
   font-size: 14px;
   margin-bottom: 5px;
 }
@@ -171,14 +171,14 @@ body {
 
 .categoryCard p {
   font-size: 14px;
-  color: orange;
+  color: #FC8A06;
   margin-bottom: 10px;
 }
 
 /* Responsive Media Queries */
 
 /* Tablets and smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .container {
     margin: 0 2rem;
   }

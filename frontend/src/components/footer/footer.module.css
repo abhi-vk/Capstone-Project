@@ -1,6 +1,6 @@
-/* General Footer Styling */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* General Footer Styling */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -8,14 +8,13 @@ body {
   background-color: #f9f9f9;
 }
 
-
 .footer {
   background-color: #d9d9d9; /* Matches your design */
   color: #333;
   font-family: 'Arial', sans-serif;
-  padding: 0rem 0;
+  padding-top: 2rem;
   font-size: 0.7rem;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .container {
@@ -31,6 +30,7 @@ body {
   padding-top: 1rem;
   flex: 1;
   min-width: 250px;
+  text-align: left;
 }
 
 .logo {
@@ -38,8 +38,7 @@ body {
   margin-bottom: 0.7rem;
 }
 
-.storeLogos {
-  width: 150px;
+.appLinks {
   margin: 1rem 0;
 }
 
@@ -59,8 +58,7 @@ body {
 .middleSection h2 {
   font-size: 0.9rem;
   font-weight: bold;
-  margin-bottom: 0.3rem;
-  font-weight: bold;
+  margin-bottom: 0.5rem;
   color: #1a1a1a;
 }
 
@@ -68,12 +66,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .emailInput {
   padding: 15px;
-  width: 80%; /* Make the input field longer than the button */
+  width: 70%; /* Make the input field longer than the button */
   border: none; /* Remove the border */
   outline: none; /* Remove focus outline */
   border-radius: 25px 0 0 25px; /* Curved only on the left side */
@@ -85,11 +83,10 @@ body {
   color: #2e2828;
 }
 
-
 .subscribeButton {
   width: 80%;
   padding: 15px 30px;
-  background-color: #ff7f00;
+  background-color: #FC8A06;
   color: #fff;
   border: none;
   border-radius: 25px; /* Curved on both sides */
@@ -98,14 +95,12 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-left: -25px; /* Pull button slightly to overlap the input */
+  margin-left: -25px;
 }
 
 .subscribeButton:hover {
   background-color: #e56a00;
 }
-
-
 
 .disclaimer {
   font-size: 0.875rem;
@@ -114,7 +109,7 @@ body {
 }
 
 .disclaimer .link {
-  color: #ff7f00;
+  color: #FC8A06;
   text-decoration: none;
 }
 
@@ -167,10 +162,9 @@ body {
 }
 
 .linkColumn a:hover {
-  color: #ff7f00;
+  color: #FC8A06;
 }
 
-/* Bottom Bar */
 /* Bottom Bar */
 .bottomBar {
   background-color: #1b1b1b;
@@ -181,8 +175,6 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin: 0; /* Ensure no gap */
-  border-top: 1px solid #333; /* Optional separator for styling */
 }
 
 .bottomBar p {
@@ -191,7 +183,6 @@ body {
 }
 
 .footerLinks {
-  margin: 0; /* Removes spacing */
   display: flex;
   gap: 1rem;
 }
@@ -204,6 +195,90 @@ body {
 }
 
 .footerLinks a:hover {
-  color: #ff7f00;
+  color: #FC8A06;
 }
 
+/* Media Queries */
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+  .container {
+    gap: 3rem;
+  }
+  .logo {
+    width: 200px;
+  }
+  .emailInput {
+    width: 80%;
+  }
+  .subscribeButton {
+    padding: 15px 30px;
+  }
+}
+
+/* Medium screens (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .emailInput {
+    width: 70%;
+  }
+  .subscribeButton {
+    padding: 15px 15px;
+    font-size: 0.7rem;
+    
+    
+  }
+  .socialLinks {
+    gap: 1rem;
+  }
+  .leftSection{
+    text-align: center;
+  }
+}
+
+/* Small screens (up to 767px) */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  .leftSection,
+  .rightSection {
+    flex: none;
+    width: 100%;
+  }
+  .leftSection{
+    text-align: center;
+  }
+  .logo {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+  .emailInput {
+    width: 80%;
+    font-size: 0.7rem;
+  }
+  .subscribeButton {
+    padding: 15px 15px;
+    font-size: 0.7rem;
+    
+    
+  }
+  .socialLinks img {
+    width: 25px;
+    height: 25px;
+  }
+  .bottomBar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footerLinks {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

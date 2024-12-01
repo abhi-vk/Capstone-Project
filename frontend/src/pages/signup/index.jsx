@@ -64,7 +64,7 @@ export default function Register() {
       localStorage.setItem("email", response.email || formData.email);
 
       toast.success(response.message);
-      navigate("/"); // Redirect to homepage
+      navigate("/login"); // Redirect to homepage
     } catch (error) {
       toast.error("Registration failed. Please try again.");
       console.error(error);
@@ -80,7 +80,7 @@ export default function Register() {
         <div className={styles.leftPane}>
           <div className={styles.content}>
             <img src="/assets/LOGO 1.png" alt="Order Logo" className={styles.logo} />
-            <h2 className={styles.welcome}>Create an account 👋</h2>
+            <h2 className={styles.welcome}>Create an account 🙌</h2>
             <p className={styles.subtitle}>Today is a new day. It's your day. You shape it. Sign in to start ordering.</p>
             <form className={styles.form} onSubmit={handleRegister}>
               <input
@@ -115,7 +115,7 @@ export default function Register() {
               />
               {formErrors.password && <p className={styles.error}>{formErrors.password}</p>}
 
-              <button type="submit" disabled={loading}>
+              <button  className={styles.btn}type="submit" disabled={loading}>
                 {loading ? "Signing Up..." : "Sign Up"}
               </button>
             </form>

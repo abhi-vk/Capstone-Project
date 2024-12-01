@@ -11,7 +11,7 @@ body {
   /* Navbar styles */
   .navBar {
     padding: 10px 5rem;
-    background-color: orange;
+    background-color: #FC8A06;
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
@@ -46,7 +46,7 @@ body {
     margin: 0 5rem;
   }
   .cardsContainer h3{
-    color: orange;
+    color: #FC8A06;
   }
   /* Individual card styling */
   .card {
@@ -107,9 +107,18 @@ body {
     }
   
     .cardsContainer {
-      padding: 0 1rem;
+      padding: 0 0.5rem; /* Reduced margin to 2rem for mobile */
       gap: 15px;
+      justify-content: center; /* Ensure cards are centered on mobile */
+      margin: 0 1rem;
     }
+  
+    .card {
+      width: 90%; /* Make cards responsive and adjust width */
+      max-width: 350px; /* Optional: limit card width on mobile */
+      margin: 0.5rem 0.5rem; /* Center the cards */
+    }
+  
   
     .tabButton {
       font-size: 0.8rem;

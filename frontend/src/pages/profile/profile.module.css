@@ -104,13 +104,13 @@ body {
   }
   
   .inputGroup input:focus {
-    border-color: orange;
+    border-color: #FC8A06;
   }
   
   .editButton {
     width: 150px;
     padding: 10px 20px;
-    background-color: orange;
+    background-color: #FC8A06;
     border: none;
     border-radius: 20px;
     color: white;
@@ -175,7 +175,7 @@ body {
     width: 30px;
     cursor: pointer;
     font-size: 1rem;
-    color: orange;
+    color: #FC8A06;
     transition: color 0.3s ease;
   }
   
@@ -197,7 +197,7 @@ body {
   }
   
   .addCardButton:hover {
-    border-color: orange;
-    color: orange;
+    border-color: #FC8A06;
+    color: #FC8A06;
   }
   

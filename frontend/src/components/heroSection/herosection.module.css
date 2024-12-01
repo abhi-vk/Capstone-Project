@@ -1,127 +1,203 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-/* General body styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-  }
-
-
+/* Laptop and larger screens - unchanged */
 .heroContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 5rem;
-    padding:10px 2rem;
-    background: #FBFBFB;
-    border: 1px solid #00000033;
-    border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 20px 5rem;
+  background: #fbfbfb;
+  border: 1px solid #00000033;
+  border-radius: 8px;
+  position: relative;
+}
+
+.leftSection h1 span {
+  color: #ff7f00;
+  display: block;
+}
+
+.withbtn {
+  display: flex;
+  width: 70%;
+  margin: 0;
+}
+
+.codeInput {
+  border: 1px solid #00000066;
+  padding: 15px;
+  width: 70%; /* Input longer than the button */
+  border-radius: 25px 0 0 25px; /* Curved left side only */
+  font-size: 0.7rem;
+}
+
+.codeInput::placeholder {
+  color: #2e2828;
+}
+
+.searchBtn {
+  width: 50%;
+  padding: 15px 20px;
+  background-color: #ff7f00;
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Rounded on both sides */
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: -35px;
+}
+
+.searchBtn:hover {
+  background-color: #e56a00;
+}
+
+.leftSection {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.middleImage {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 100%;
+  z-index: 4;
+}
+
+.rightSection {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-left: 15rem;
+  background: #fc8a06;
+  border-radius: 50% 0 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.reviewCard {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  padding: 0.6rem;
+  margin-right: 6rem;
+  width: 250px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  font-size: 10px;
+  height: 60px;
+}
+
+.cardNumber {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: #ff7f00;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.reviewCard h3 {
+  padding: 2px;
+  margin: 0;
+}
+
+.reviewCard p {
+  font-size: 8px;
+  padding: 2px;
+  margin: 0;
+}
+
+.rightOverlayImage {
+  position: absolute;
+  height: 80%;
+  bottom: 0;
+  left: -10%;
+  z-index: 2;
+}
+
+.smallLogo {
+  width: 60px;
+  height: 15px;
+  margin-bottom: 0.5rem;
+}
+
+/* Medium screens (e.g., tablets, max-width: 1024px) */
+@media (max-width: 1240px) {
+  .heroContainer {
+    background: #03081F;
+    flex-direction: column; /* Stack vertically */
+    margin: 20px 2rem;
+    color:#fbfbfb;
+    align-items: center; /* Center the sections */
+    text-align: center;
+    justify-content: center;
   }
-  
-  .leftSection {
-    flex: 1;
-    margin-right: 2rem;
+
+  .middleImage {
+    display: none; /* Hide middle image for simplicity */
   }
-  
-  .heading {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .highlight {
-    color: #ff7a00;
-  }
-  
-  .subText {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-    color: #555;
-  }
-  
-  .searchContainer {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .input {
-    flex: 1;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .searchButton {
-    background-color: #ff7a00;
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 0.5rem;
-  }
-  
-  .heroImage {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin-top: 1.5rem;
-  }
-  
+
   .rightSection {
-    flex: 1;
+    display: none; /* Hide right section */
   }
-  
-  .orderStep {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-  }
-  
-  .stepNumber {
-    background-color: #ff7a00;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    display: flex;
+  .withbtn{
+    width: 100%;
     justify-content: center;
     align-items: center;
-    margin-right: 1rem;
   }
   
-  .stepContent {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .orderTitle {
-    font-weight: bold;  
-    margin-bottom: 0.5rem;
-  }
-  .ordering{
-    font-size: 0.1rem;
-    width: 7rem;
-    height: 30px;
+}
 
+/* Mobile screens (e.g., max-width: 768px) */
+@media (max-width: 768px) {
+  .heroContainer {
+    background: #03081F;
+    flex-direction: column;
+    color: #fbfbfb;
+    padding: 1rem;
   }
   
-  .orderText {
-    color: #555;
+  .middleImage {
+    display: none; /* Hide middle image for simplicity */
   }
-  
-  .timestamp {
-    font-size: 0.8rem;
-    color: #aaa;
-    margin-top: 0.5rem;
+
+  .rightSection {
+    display: none; /* Hide right section */
   }
-  
+
+  .leftSection {
+    padding: 1rem;
+    text-align: center; /* Center align content */
+  }
+  .withbtn{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .codeInput {
+    width: 50%;
+  }
+
+  .searchBtn {
+    width: 50%;
+  }
+}

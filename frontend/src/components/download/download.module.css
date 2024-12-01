@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  margin: 20px 5rem;
+  background-color: #f9f9f9;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 20px 0px 20px 20px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.imageContainer {
+  position: relative;
+  flex: 1;
+  max-width: 50%;
+  margin:0 20px;
+}
+
+.actualImage {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.shadowImage {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100%;
+ 
+  z-index: 1;
+}
+
+.textContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.textContent h1 {
+  font-size: 2rem;
+  color: #000000;
+  margin: 10px 0;
+}
+
+.textContent h2 {
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: black;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.textContent h2 span {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.8rem;
+  color: #FC8A06;
+  margin: 10px 0;
+}
+
+.textContent p {
+  font-size: 1rem;
+  color: #000000;
+  margin: 10px 0 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.appButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.appButton img {
+  height: 40px;
+  width: auto;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+  .textContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .textContent h2 {
+    font-size: 2.2rem;
+    padding: 20px 30px;
+  }
+
+  .textContent h2 span {
+    font-size: 2.2rem;
+  }
+
+  .textContent p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium screens (768px to 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .imageContainer {
+    max-width: 80%;
+    margin: 10px auto;
+  }
+
+  .textContent {
+    padding: 0;
+  }
+
+  .textContent h1 {
+    font-size: 2rem;
+  }
+
+  .textContent h2 {
+    font-size: 1.8rem;
+    padding: 15px 20px;
+  }
+
+  .textContent h2 span {
+    font-size: 1.8rem;
+  }
+
+  .textContent p {
+    font-size: 1rem;
+  }
+}
+
+/* Small screens (up to 767px) */
+@media (max-width: 767px) {
+  .container {
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .actualImage,
+  .shadowImage {
+    max-width: 90%;
+  }
+
+  .textContent {
+    padding: 0 1rem;
+  }
+
+  .textContent h1 {
+    font-size: 1.5rem;
+  }
+
+  .textContent h2 {
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+
+  .textContent h2 span {
+    font-size: 1.5rem;
+  }
+
+  .textContent p {
+    font-size: 0.9rem;
+  }
+
+  .buttonGroup img {
+    height: 30px;
+  }
+}

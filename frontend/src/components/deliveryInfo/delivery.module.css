@@ -72,6 +72,7 @@ body {
   @media screen and (max-width: 768px) {
     .infoContainer {
       flex-direction: column;
+      margin: 20px 2rem;
     }
   
     .infoSection {

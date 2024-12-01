@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./payment.module.css"; // CSS module for styling
+import styles from "./payment.module.css";
 import Navbar from "../../components/navbar";
 import { useCart } from "../../context/cartContext";
-import CardModal from "../../components/cardModal"; // Import CardModal component
-import { getCards } from "../../services"; // Import service to fetch saved cards
+import CardModal from "../../components/cardModal";
+import { getCards } from "../../services";
 
 const PaymentPage = () => {
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null); // Track selected payment method
-  const [savedCards, setSavedCards] = useState([]); // State to hold saved cards
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+  const [savedCards, setSavedCards] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);  // Track selected card for editing
   const navigate = useNavigate();
-  const { cart } = useCart(); // Get cart data from context
+  const { cart } = useCart();
 
   // Fetch saved cards on component mount
   useEffect(() => {
     const fetchSavedCards = async () => {
       try {
-        const cards = await getCards(); // Fetch cards from backend
-        setSavedCards(cards); // Update state with fetched cards
+        const cards = await getCards();
+        setSavedCards(cards);
       } catch (error) {
         console.error("Error fetching saved cards:", error.message);
       }
@@ -28,7 +29,7 @@ const PaymentPage = () => {
 
   const handleProceedPayment = () => {
     if (selectedPaymentMethod) {
-      navigate("/order"); // Navigate to the order success page
+      navigate("/order");
     } else {
       alert("Please select a payment method");
     }
@@ -39,8 +40,18 @@ const PaymentPage = () => {
   };
 
   const handleSaveCard = (cardDetails) => {
-    setSavedCards((prevCards) => [...prevCards, cardDetails]); // Add new card to saved cards
-    setSelectedPaymentMethod(cardDetails.nameOnCard); // Automatically select the newly added card
+    // If it's a new card, add it to saved cards; else update the existing card
+    if (selectedCard) {
+      setSavedCards((prevCards) =>
+        prevCards.map((card) =>
+          card._id === selectedCard._id ? cardDetails : card
+        )
+      );
+    } else {
+      setSavedCards((prevCards) => [...prevCards, cardDetails]);
+    }
+    setSelectedPaymentMethod(cardDetails.nameOnCard); // Automatically select the new/updated card
+    setIsModalOpen(false); // Close modal after saving
   };
 
   return (
@@ -56,10 +67,8 @@ const PaymentPage = () => {
         Choose and Pay
       </h2>
       <div className={styles.paymentContainer}>
-        {/* Left Section: Payment Methods */}
         <div className={styles.leftSection}>
           <div className={styles.paymentMethods}>
-            {/* Wallet Method */}
             <div
               className={`${styles.method} ${
                 selectedPaymentMethod === "wallet" ? styles.selected : ""
@@ -74,7 +83,6 @@ const PaymentPage = () => {
             </div>
             <div className={styles.breakerline}></div>
 
-            {/* Default Payment Methods */}
             <div
               className={`${styles.method} ${
                 selectedPaymentMethod === "maestro" ? styles.selected : ""
@@ -103,12 +111,13 @@ const PaymentPage = () => {
               <p>Stripe</p>
             </div>
 
-            {/* Render Saved Cards */}
             {savedCards.map((card, index) => (
               <div
                 key={index}
                 className={`${styles.method} ${
-                  selectedPaymentMethod === card.nameOnCard ? styles.selected : ""
+                  selectedPaymentMethod === card.nameOnCard
+                    ? styles.selected
+                    : ""
                 }`}
                 onClick={() => setSelectedPaymentMethod(card.nameOnCard)}
               >
@@ -117,10 +126,12 @@ const PaymentPage = () => {
               </div>
             ))}
 
-            {/* Add Debit Card */}
             <div
               className={styles.method}
-              onClick={() => setIsModalOpen(true)} // Open modal when clicked
+              onClick={() => {
+                setSelectedCard(null); // Reset selected card for new card addition
+                setIsModalOpen(true);
+              }}
             >
               <span className={styles.addIcon}>+</span>
               <p>Add Debit Card</p>
@@ -128,35 +139,35 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        {/* Right Section: Payment Summary */}
         <div className={styles.rightSection}>
           <div className={styles.finalPrice}>
             <div className={styles.summary}>
               <p className={styles.summaryTitle}>Amount to be paid</p>
             </div>
             <div className={styles.summary}>
-              <p className={styles.amount}>₹{(calculateSubtotal() + 10).toFixed(2)}</p>
+              <p className={styles.amount}>
+                ₹{(calculateSubtotal() + 10).toFixed(2)}
+              </p>
             </div>
           </div>
           <div className={styles.breakerline}></div>
           <div style={{ position: "relative" }}>
-  <button
-    className={styles.proceedButton}
-    onClick={handleProceedPayment}
-    disabled={!selectedPaymentMethod} 
-  >
-    Proceed Payment
-  </button>
-</div>
-
+            <button
+              className={styles.proceedButton}
+              onClick={handleProceedPayment}
+              disabled={!selectedPaymentMethod}
+            >
+              Proceed Payment
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* CardModal Component */}
       <CardModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)} // Close modal
-        onSave={handleSaveCard} // Save card details
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveCard}
+        cardDetails={selectedCard} // Pass selectedCard for editing, null for new card
       />
     </>
   );

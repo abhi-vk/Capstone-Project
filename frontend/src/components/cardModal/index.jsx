@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./card.module.css";
-import { addCard } from "../../services";
 
 const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
   const [cardDetails, setCardDetails] = useState({
@@ -41,7 +40,6 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
       setIsLoading(true);
       await onSave(cardDetails); // Call parent onSave
       onClose();
-      window.location.reload();
     } catch (error) {
       alert("Error saving card: " + error.message);
     } finally {
@@ -103,25 +101,25 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
               className={styles.input}
               type="text"
               name="nameOnCard"
-              placeholder="John Doe"
               value={cardDetails.nameOnCard}
               onChange={handleChange}
             />
           </div>
-        </form>
 
-        <div className={styles.modalActions}>
-          <button className={styles.cancelBtn} onClick={onClose} disabled={isLoading}>
-            Cancel
-          </button>
-          <button
-            className={styles.saveBtn}
-            onClick={handleSave}
-            disabled={isLoading}
-          >
-            {isLoading ? "Saving..." : "Save"}
-          </button>
-        </div>
+          <div className={styles.buttonGroup}>
+            <button
+              type="button"
+              className={styles.saveButton}
+              onClick={handleSave}
+              disabled={isLoading}
+            >
+              {isLoading ? "Saving..." : "Save"}
+            </button>
+            <button type="button" className={styles.cancelButton} onClick={onClose}>
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

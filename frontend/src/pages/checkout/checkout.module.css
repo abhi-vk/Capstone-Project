@@ -35,7 +35,10 @@ body {
     gap: 15px;
   }
   .previous{
+    width: 24px;
+    height: 24px;
     cursor: pointer;
+    margin-right: 10px;
   }
   .orderList {
     display: flex;

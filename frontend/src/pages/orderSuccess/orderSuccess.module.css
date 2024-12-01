@@ -36,15 +36,16 @@ body {
   height: 100%; 
   object-fit: cover; 
 }
+
 .title {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increase font size */
   font-weight: bold;
   color: #333;
   margin-top: 10px;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.2rem; /* Slightly larger font for better readability */
   color: #666;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -61,7 +62,8 @@ body {
   padding: 15px;
   border: 1px solid #00000080;
   border-radius: 8px;
-  width: 300px; /* Ensure consistent width */
+  width: 80%; /* Use a percentage to scale with screen size */
+  max-width: 400px; /* Set a max width to prevent overflow */
   text-align: center;
 }
 
@@ -84,4 +86,69 @@ body {
 
 .backButton:hover {
   background-color: #ff7700;
+}
+
+/* Media Queries for responsiveness */
+
+/* Mobile (up to 600px) */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem; /* Adjust title size for mobile */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Adjust subtitle size for mobile */
+  }
+
+  .itemList {
+    width: 90%; /* Increase item list width for mobile */
+    padding: 10px;
+  }
+
+  .item {
+    font-size: 0.9rem; /* Adjust item font size for better readability */
+  }
+
+  .backButton {
+    font-size: 14px; /* Slightly smaller button font size */
+    padding: 10px 20px; /* Adjust padding for smaller screen */
+  }
+}
+
+/* Tablet (600px to 900px) */
+@media (max-width: 900px) {
+  .title {
+    font-size: 1.8rem; /* Adjust title for tablet */
+  }
+
+  .subtitle {
+    font-size: 1.1rem; /* Adjust subtitle for tablet */
+  }
+
+  .itemList {
+    width: 85%; /* Adjust width for tablet */
+  }
+
+  .backButton {
+    font-size: 15px; /* Slightly smaller button font size */
+  }
+}
+
+/* Large screen (900px and above) */
+@media (min-width: 900px) {
+  .title {
+    font-size: 2.2rem; /* Larger title for large screens */
+  }
+
+  .subtitle {
+    font-size: 1.3rem; /* Larger subtitle for large screens */
+  }
+
+  .itemList {
+    width: 80%; /* Set item list width */
+  }
+
+  .backButton {
+    font-size: 16px; /* Default button size */
+  }
 }

@@ -112,6 +112,7 @@
   .proceedButton {
     background-color: #ff9100;
     color: white;
+    width: 100%;
     padding: 12px 20px;
     border: none;
     border-radius: 20px;
@@ -122,5 +123,19 @@
   .proceedButton:disabled {
     background-color: #ff9100;
     cursor: not-allowed;
+  }
+  .proceedButton[disabled]:hover::after {
+    content: "Please select a payment method";
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    top: -40px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
   }
   

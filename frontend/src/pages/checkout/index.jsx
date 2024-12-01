@@ -89,21 +89,24 @@ const CheckoutPage = () => {
 
             <div className={styles.notesSection}>
               <label htmlFor="orderNotes">Notes</label>
-              <textarea
+              <input
                 id="orderNotes"
+                type="text"
                 placeholder="Add order notes"
                 className={styles.notesInput}
-              ></textarea>
+              ></input>
             </div>
           </div>
         </div>
         <div className={styles.rightSection}>
-          <div className={styles.deliveryAddress}>
+          <div className={styles.deliveryAddress} onClick={() => navigate("/address")}>
             <img src="assets/Location_1.png" />
-            <button onClick={() => navigate("/address")} disabled={isReadOnly}>
+            <button  disabled={isReadOnly}>
               <p>Delivery Address</p>
               {defaultAddress}
             </button>
+            
+
           </div>
           <div className={styles.line}></div>
           <div className={styles.priceDetails}>

@@ -247,7 +247,7 @@ body {
     }
   }
   
-  /* For screens smaller than 480px (Mobile) */
+  
   /* For screens smaller than 480px (Mobile) */
 @media (max-width: 480px) {
     .heroCard {
@@ -277,7 +277,7 @@ body {
     .burgerImage {
       width: 320px;
       height: 200px;
-      
+
     }
   
     .ratingBox {

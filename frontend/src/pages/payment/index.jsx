@@ -139,13 +139,16 @@ const PaymentPage = () => {
             </div>
           </div>
           <div className={styles.breakerline}></div>
-          <button
-            className={styles.proceedButton}
-            onClick={handleProceedPayment}
-            disabled={!selectedPaymentMethod} // Disable if no method selected
-          >
-            Proceed Payment
-          </button>
+          <div style={{ position: "relative" }}>
+  <button
+    className={styles.proceedButton}
+    onClick={handleProceedPayment}
+    disabled={!selectedPaymentMethod} 
+  >
+    Proceed Payment
+  </button>
+</div>
+
         </div>
       </div>
 

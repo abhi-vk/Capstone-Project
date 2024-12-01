@@ -80,13 +80,13 @@ body {
   }
   
   .notesInput {
-    width: 100%;
-    height: 100px;
+    display: block;
+    margin: 5px;
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 20px;
     border: 1px solid #03081F;
     font-size: 16px;
-    box-sizing: border-box;
+   
   }
   
   /* Right Section: Payment Details */
@@ -99,6 +99,7 @@ body {
   }
   
   .deliveryAddress {
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -128,6 +129,7 @@ body {
     font-size: 14px;
     
   }
+ 
   
   
   .line{
@@ -159,7 +161,7 @@ body {
   }
   
   .paymentButton {
-    background: orange;
+    background: #fc8a06;
     color: white;
     padding: 12px;
     font-size: 16px;
@@ -172,30 +174,107 @@ body {
   .paymentButton:hover {
     background: rgb(194, 127, 1);
   }
-  .notesSection {
-    margin-top: 20px;
-  }
+
   
-  .notesInput {
-    width: 100%;
+
+  /* General Mobile Adjustments */
+@media (max-width: 1024px) {
+  .checkoutContainer {
+    flex-direction: column;
     padding: 10px;
-    border: 1px solid #03081F;
-    border-radius: 6px;
+    margin: 10px;
+  }
+
+  .leftSection, .rightSection {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  .prevIcon {
+    font-size: 20px;
+    margin: 0 1rem;
+    padding: 10px;
+  }
+
+  .orderItem {
+    flex-wrap: wrap;
+  }
+
+  .itemImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .itemDetails h3 {
+    font-size: 0.9rem;
+  }
+
+  .itemPrice {
     font-size: 16px;
-    box-sizing: border-box;
   }
-  
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .checkoutContainer {
-      flex-direction: column;
-      padding: 10px;
-    }
-  
-    .leftSection, .rightSection {
-      width: 100%;
-      margin-bottom: 20px;
-    }
+
+  .notesInput {
+    font-size: 14px;
+    padding: 8px;
   }
+
+  .deliveryAddress img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .deliveryAddress p {
+    font-size: 0.9rem;
+  }
+
+  .priceDetails p {
+    font-size: 14px;
+  }
+
+  .subtotal {
+    font-size: 16px;
+  }
+
+  .paymentButton {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* For very small devices (max-width: 576px) */
+@media (max-width: 576px) {
+  .prevIcon {
+    font-size: 18px;
+  }
+ .notesInput{
+  width: 300px;
+ }
+  .orderItem {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .itemDetails h3 {
+    font-size: 0.8rem;
+  }
+
+  .deliveryAddress {
   
+    gap: 5px;
+  }
+
+  .deliveryAddress img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .priceDetails p, .priceDetails span {
+    font-size: 12px;
+  }
+
+  .paymentButton {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

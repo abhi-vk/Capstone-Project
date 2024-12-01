@@ -132,7 +132,7 @@ input {
     gap: 10px; /* Reduce gap between form fields */
   }
 
-  button {
+  .btn{
     max-width: 350px; /* Make button smaller on mobile */
   }
 }

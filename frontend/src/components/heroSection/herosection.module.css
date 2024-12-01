@@ -37,7 +37,7 @@
 .searchBtn {
   width: 50%;
   padding: 15px 20px;
-  background-color: #ff7f00;
+  background-color: #fc8a06;
   color: #fff;
   border: none;
   border-radius: 25px; /* Rounded on both sides */
@@ -163,6 +163,10 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    
+  }
+  .codeInput{
+    padding: 13px;
   }
   
 }
@@ -194,10 +198,12 @@
     align-items: center;
   }
   .codeInput {
+   
     width: 50%;
   }
 
   .searchBtn {
     width: 50%;
+
   }
 }

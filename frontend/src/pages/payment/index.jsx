@@ -4,7 +4,8 @@ import styles from "./payment.module.css";
 import Navbar from "../../components/navbar";
 import { useCart } from "../../context/cartContext";
 import CardModal from "../../components/cardModal";
-import { getCards } from "../../services";
+import { getCards, addCard, updateCard } from "../../services";
+
 
 const PaymentPage = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
@@ -39,20 +40,30 @@ const PaymentPage = () => {
     return cart.reduce((sum, item) => sum + item.totalPrice, 0);
   };
 
-  const handleSaveCard = (cardDetails) => {
-    // If it's a new card, add it to saved cards; else update the existing card
-    if (selectedCard) {
-      setSavedCards((prevCards) =>
-        prevCards.map((card) =>
-          card._id === selectedCard._id ? cardDetails : card
-        )
-      );
-    } else {
-      setSavedCards((prevCards) => [...prevCards, cardDetails]);
+  const handleSaveCard = async (cardDetails) => {
+    try {
+      if (selectedCard) {
+        // Update an existing card
+        const updatedCard = await updateCard(selectedCard._id, cardDetails);
+        setSavedCards((prevCards) =>
+          prevCards.map((card) =>
+            card._id === selectedCard._id ? updatedCard : card
+          )
+        );
+      } else {
+        // Add a new card
+        const newCard = await addCard(cardDetails);
+        setSavedCards((prevCards) => [...prevCards, newCard]);
+      }
+  
+      setSelectedPaymentMethod(cardDetails.nameOnCard); // Select the saved/updated card
+      setIsModalOpen(false); // Close the modal
+    } catch (error) {
+      console.error("Error saving card:", error.message);
+      alert("Failed to save the card. Please try again.");
     }
-    setSelectedPaymentMethod(cardDetails.nameOnCard); // Automatically select the new/updated card
-    setIsModalOpen(false); // Close modal after saving
   };
+  
 
   return (
     <>

@@ -17,15 +17,15 @@ body {
   border-radius: 0 0 10px 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 0px 0px 0px 30px; /* Consistent padding */
-  margin: 0 5rem 0 5rem; /* No right margin on the cart */
+  padding: 0px 0px 0px 30px;
+  margin: 0 5rem 0 5rem; 
   font-size: 0.8rem;
   color: #333;
 }
 
 
   .promo {
-    display: block; /* Default is visible */
+    display: block; 
     padding-left: 20px;
     color: #000000;
     font-weight: bold;
@@ -225,10 +225,7 @@ body {
   .promo {
     display: none; /* Hide promo section */
   }
-  .brand .logo {
-    width: 150px;
-    height: 100%;
-  }
+  
   .navLinks {
     display: none;
     flex-direction: column;
@@ -328,7 +325,8 @@ body {
 }
 
 .brand .logo {
-  width: 80px; /* Adjust logo size */
+  width: 120px; 
+  height: 100%;/* Adjust logo size */
 }
 
 .navButton {
@@ -337,8 +335,9 @@ body {
 }
 
 .userSection {
-  width: 40%;
+  width: 35%;
 }
+
 
 .dropdownMenu {
   position: absolute;
@@ -354,7 +353,7 @@ body {
 
 .loginBtn {
   font-size: 0.9rem;
-  width: 100%;
+  width: 40%;
   text-align: center;
 }
 }

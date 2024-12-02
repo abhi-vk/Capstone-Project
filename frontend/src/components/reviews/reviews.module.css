@@ -211,6 +211,7 @@
   
     .cardsContainer {
       gap: 15px;
+      margin: 10px 1.5rem;
     }
   
     .card {

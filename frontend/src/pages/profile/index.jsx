@@ -3,7 +3,7 @@ import styles from "./profile.module.css";
 import Navbar from "../../components/navbar";
 import { useNavigate } from "react-router-dom";
 import CardModal from "../../components/cardModal";
-import { getCards, addCard, updateCard } from "../../services";
+import { getCards, addCard, updateCard, deleteCard } from "../../services";
 
 export default function Profile() {
   const [formData, setFormData] = useState({
@@ -67,6 +67,15 @@ export default function Profile() {
     }
   };
 
+  const handleDeleteCard = async (cardId) => {
+    try {
+      await deleteCard(cardId);
+      setSavedCards((prevCards) => prevCards.filter((card) => card._id !== cardId));
+    } catch (error) {
+      console.error("Error deleting card:", error.message);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -89,10 +98,9 @@ export default function Profile() {
           />
           <div className={styles.profileInfo}>
             <h3>{formData.name}</h3>
-            
-            
           </div>
-          <div> <button
+          <div>
+            <button
               className={styles.editButton}
               onClick={() => {
                 if (isEditing) handleSaveProfile();
@@ -100,9 +108,10 @@ export default function Profile() {
               }}
             >
               {isEditing ? "Save" : "Edit"}
-            </button></div>
+            </button>
+          </div>
         </div>
-        
+
         <div className={styles.formSection}>
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
@@ -161,20 +170,29 @@ export default function Profile() {
           <div className={styles.cardList}>
             {savedCards.map((card) => (
               <div key={card._id} className={styles.card}>
-                  <img src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732996093/foodapp-images/jmvbmre4bysfzexy1nur.png"/> 
-
+                <img
+                  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732996093/foodapp-images/jmvbmre4bysfzexy1nur.png"
+                  alt="Card"
+                />
                 <div className={styles.cardDetails}>
-                 <p>{`XXXX XXXX XXXX ${card.lastFourDigits}`}</p>
+                  <p>{`XXXX XXXX XXXX ${card.lastFourDigits}`}</p>
                   <span>{card.nameOnCard}</span>
-                </div>
-                <button
+                  <button
                   className={styles.editIcon}
                   onClick={() => {
                     setSelectedCard(card);
                     setIsModalOpen(true);
                   }}
                 >
-                  ✏️
+                <img src="https://res.cloudinary.com/dslmuge4f/image/upload/v1733143726/foodapp-images/kf0tzqawk0ac4omgpqqp.png"/>
+                </button>
+                </div>
+                
+                <button
+                  className={styles.removeIcon}
+                  onClick={() => handleDeleteCard(card._id)}
+                >
+                  X
                 </button>
               </div>
             ))}

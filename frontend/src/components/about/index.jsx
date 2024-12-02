@@ -15,8 +15,8 @@ const About = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.questions}>
-          <button className={styles.questionButton}>How does Order.UK work?</button>
           <ul>
+            <li><button className={styles.questionButton}>How does Order.UK work?</button></li>
             <li>What payment methods are accepted?</li>
             <li>Can I track my order in real-time?</li>
             <li>Are there any special discounts or promotions available?</li>

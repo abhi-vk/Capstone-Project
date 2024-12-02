@@ -275,14 +275,14 @@ body {
     }
   
     .burgerImage {
-      width: 320px;
+      width: 100%;
       height: 200px;
 
     }
   
     .ratingBox {
       position: relative; /* Adjust position for mobile */
-      left: 125px;
+      left: 115px;
       
       margin-top: 10px;
       padding: 6px;

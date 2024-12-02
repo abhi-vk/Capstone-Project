@@ -38,7 +38,8 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
     }
     try {
       setIsLoading(true);
-      await onSave(cardDetails); // Call parent onSave
+      await onSave(cardDetails); 
+      window.location.reload();// Call parent onSave
       onClose();
     } catch (error) {
       alert("Error saving card: " + error.message);

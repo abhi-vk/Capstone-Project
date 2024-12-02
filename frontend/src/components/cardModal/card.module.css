@@ -6,93 +6,165 @@ body {
   padding: 0;
   background-color: #ffffff;
 }
+
 .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 420px;
+  width: 90%; /* Adjusted for mobile screens */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #000000;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #4a4a4a;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  color: #333333;
+}
+
+.cardNumberInput {
+  display: flex;
+  align-items: center;
+}
+
+.cardNumberStatic {
+  font-size: 0.9rem;
+  margin-right: 5px;
+  color: #888888;
+}
+
+.lastFourDigits {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.saveButton,
+.cancelButton {
+  width: 48%; /* Adjusted for responsiveness */
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: #f57c00;
+  color: #ffffff;
+}
+
+.cancelButton {
+  background-color: #ffffff;
+  color: #f57c00;
+  border: 2px solid #f57c00;
+}
+
+.saveButton:disabled {
+  background-color: #e0e0e0;
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.removeBtn {
+  background-color: #444444;
+  color: #ffffff;
+  padding: 12px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
   .modalContainer {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    max-width: 95%; /* Reduce width on smaller screens */
   }
-  
+
   .modalTitle {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.2rem; /* Smaller font for the title */
+    margin-bottom: 10px;
   }
-  
-  .formGroup {
-    margin-bottom: 15px;
-  }
-  
-  .label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
+
   .input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 8px 10px; /* Smaller padding for inputs */
+    font-size: 0.85rem;
   }
-  
-  .cardNumberInput {
-    display: flex;
-    align-items: center;
-  }
-  
+
   .cardNumberStatic {
-    font-size: 1rem;
-    margin-right: 8px;
-    color: #888;
+    font-size: 0.8rem; /* Smaller static text */
+    margin-right: 4px;
   }
-  
+
   .lastFourDigits {
-    flex: 1;
+    padding: 8px 10px; /* Adjust padding */
   }
-  
-  .modalActions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+
+  .buttonGroup {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Add space between buttons */
   }
-  
-  .removeBtn,
-  .cancelBtn,
-  .saveBtn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
+
+  .saveButton,
+  .cancelButton {
+    width: 100%; /* Full width buttons */
+    font-size: 0.95rem; /* Slightly smaller font */
   }
-  
+
   .removeBtn {
-    background-color: #d9534f;
-    color: white;
+    font-size: 0.9rem; /* Adjust font size for remove button */
+    padding: 10px 0;
   }
-  
-  .cancelBtn {
-    background-color: #f0ad4e;
-    color: white;
-  }
-  
-  .saveBtn {
-    background-color: #5cb85c;
-    color: white;
-  }
-  
+}

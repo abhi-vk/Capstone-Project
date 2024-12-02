@@ -14,8 +14,8 @@ import { useNavigate } from "react-router-dom";
 const AddressPage = () => {
   const [addresses, setAddresses] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // Track if editing an address
-  const [currentEditId, setCurrentEditId] = useState(null); // Store ID of address being edited
+  const [isEditing, setIsEditing] = useState(false); 
+  const [currentEditId, setCurrentEditId] = useState(null); 
   const [formData, setFormData] = useState({
     name: "",
     addressLine: "",
@@ -68,7 +68,7 @@ const AddressPage = () => {
     }
   };
 
-  // Update an existing address
+
   // Update an existing address
   const handleUpdateAddress = async () => {
     try {
@@ -129,7 +129,7 @@ const AddressPage = () => {
   return (
     <>
       <Navbar />
-      <h2 className={styles.prevIcon}><img onClick={() =>navigate(-1)} className={styles.previous}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
+      <h2 className={styles.prevIcon}><img onClick={() =>navigate(-1)} className={styles.backIcon}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
 
       <div className={styles.addressPage}>
         <div className={styles.addressContainer}>
@@ -138,7 +138,7 @@ const AddressPage = () => {
               className={styles.addAddressCard}
               onClick={() => setShowModal(true)}
             >
-              <p>+ Add Address</p>
+              <p><span>+</span>Add Address</p>
             </div>
           ) : (
             <>
@@ -149,14 +149,14 @@ const AddressPage = () => {
                   setShowModal(true);
                 }}
               >
-                <p>+ Add Address</p>
+                <p><span>+</span>Add Address</p>
               </div>
               {addresses.map((address) => (
                 <div key={address._id} className={styles.addressCard}>
                   <h4>
                     {address.name}
                     {address.isDefault && (
-                      <span className="defaultBadge">(Default)</span>
+                      <span className="defaultBadge">Default</span>
                     )}
                   </h4>
 
@@ -192,7 +192,7 @@ const AddressPage = () => {
                 onChange={handleInputChange}
                 required
               />
-              <textarea
+              <input
                 name="addressLine"
                 placeholder="Full Address"
                 value={formData.addressLine}

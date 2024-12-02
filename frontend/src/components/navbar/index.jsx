@@ -56,7 +56,7 @@ const Navbar = () => {
   };
 
   const toggleMenu = (e) => {
-    e.stopPropagation(); // Prevent click from propagating to window
+    e.stopPropagation(); 
     setIsMenuOpen((prev) => !prev);
   };
 

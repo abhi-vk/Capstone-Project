@@ -151,20 +151,20 @@ body {
   }
 
   .leftPane {
-    justify-content: center; /* Center content on left pane */
-    padding: 20px; /* Add padding for better spacing */
+    justify-content: center; 
+    padding: 20px; 
   }
 
   .centerContent {
-    max-width: 350px; /* Slightly smaller form */
-    width: 100%; /* Ensure it takes full width */
+    max-width: 350px; 
+    width: 100%; 
   }
 
   .form {
-    gap: 10px; /* Reduce gap between form fields */
+    gap: 10px; 
   }
 
   .form button {
-    max-width: 350px; /* Same size as the form */
+    max-width: 350px; 
   }
 }

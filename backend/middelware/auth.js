@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
 const env = require("dotenv");
-env.config();  // Load environment variables from .env
+env.config();  
 
 const isLoggedIn = (req, res, next) => {
-    // Extract the token from the Authorization header, expecting the format "Bearer <token>"
+    
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     if (token) {
-        // Verify the token
+     
         
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) {
@@ -17,11 +17,11 @@ const isLoggedIn = (req, res, next) => {
                 return res.status(401).json({ message: "Invalid token", error: err.message });
             }
             
-            // Store the decoded user data in req.user
+            
             req.user = decoded;
            
 
-            next();  // Proceed to the next middleware or route handler
+            next(); 
         });
     } else {
         return res.status(401).json({ message: "No token provided" });

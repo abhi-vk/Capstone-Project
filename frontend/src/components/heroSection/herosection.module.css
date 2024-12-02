@@ -181,16 +181,16 @@
   }
   
   .middleImage {
-    display: none; /* Hide middle image for simplicity */
+    display: none; 
   }
 
   .rightSection {
-    display: none; /* Hide right section */
+    display: none; 
   }
 
   .leftSection {
     padding: 1rem;
-    text-align: center; /* Center align content */
+    text-align: center; 
   }
   .withbtn{
     width: 100%;

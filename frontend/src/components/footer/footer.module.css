@@ -71,10 +71,10 @@ body {
 
 .emailInput {
   padding: 15px;
-  width: 70%; /* Make the input field longer than the button */
-  border: none; /* Remove the border */
-  outline: none; /* Remove focus outline */
-  border-radius: 25px 0 0 25px; /* Curved only on the left side */
+  width: 70%; 
+  border: none; 
+  outline: none; 
+  border-radius: 25px 0 0 25px; 
   font-size: 0.7rem;
   background-color: #ddcfcf;
 }

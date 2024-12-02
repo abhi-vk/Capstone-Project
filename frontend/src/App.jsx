@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="app-wrapper"> {/* Wrapper for the entire layout */}
+        <div className="app-wrapper"> 
         <CartProvider>
-          <div className="content-wrapper"> {/* Wrapper for content and footer */}
+          <div className="content-wrapper"> 
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -24,7 +24,7 @@ function App() {
             </Routes>
           </div>
           </CartProvider>
-          <Footer /> {/* Footer at the bottom */}
+          <Footer /> 
         </div>
       </BrowserRouter>
       <Toaster />

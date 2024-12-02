@@ -1,17 +1,16 @@
 import React from "react";
 import { useCart } from "../../context/cartContext";
-import styles from "./cart.module.css"; // CSS Module
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import styles from "./cart.module.css"; 
+import { useNavigate } from "react-router-dom"; 
 
 const CartModal = ({ isVisible, onClose }) => {
   const { cart, removeFromCart } = useCart();
-  const navigate = useNavigate(); // Initialize useNavigate hook
-
+  const navigate = useNavigate(); 
   if (!isVisible) return null;
 
   const calculateTotal = () => {
     const itemTotal = cart.reduce((sum, item) => sum + item.totalPrice, 0);
-    return itemTotal + 3.0 - 3.0; // Static discount and delivery fees
+    return itemTotal + 3.0 - 3.0; 
   };
 
   const totalAmount = cart.reduce((sum, item) => sum + item.totalPrice, 0);
@@ -111,11 +110,11 @@ const CartModal = ({ isVisible, onClose }) => {
           </p>
           <p>
             <span>Discounts:</span>
-            <span>-₹3.00</span>
+            <span>-₹0.00</span>
           </p>
           <p>
             <span>Delivery Fee:</span>
-            <span>₹3.00</span>
+            <span>₹0.00</span>
           </p>
           <p className={styles.totalPay}>
             <span>Total to pay:</span>

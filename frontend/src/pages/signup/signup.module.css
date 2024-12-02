@@ -62,9 +62,9 @@ input {
   border: 1px solid #ccc;
   border-radius: 20px;
   font-family: "Poppins", sans-serif;
-  width: 100%; /* Ensures input fields are the same width as the button */
-  max-width: 400px; /* Limit max width */
-  margin: 0 auto; /* Center the inputs */
+  width: 100%; 
+  max-width: 400px; 
+  margin: 0 auto; 
 }
 
 .btn {
@@ -100,7 +100,7 @@ input {
   justify-content: end;
   align-items: center;
   padding: 0;
-  background-color: #ffffff; /* Ensure both panes have the same white background */
+  background-color: #ffffff; 
   margin-right: 30px;
 }
 
@@ -112,27 +112,27 @@ input {
 }
 @media (max-width: 1000px) {
   .container {
-    flex-direction: column; /* Stack the left and right panes */
-    justify-content: center; /* Center the content vertically */
+    flex-direction: column; 
+    justify-content: center; 
   }
 
   .rightPane {
-    display: none; /* Remove right pane image */
+    display: none; 
   }
 
   .leftPane {
-    justify-content: center; /* Center content on left pane */
+    justify-content: center;
   }
 
   .content {
-    max-width: 400px; /* Slightly smaller form on smaller screens */
+    max-width: 400px; 
   }
 
   .form {
-    gap: 10px; /* Reduce gap between form fields */
+    gap: 10px; 
   }
 
   .btn{
-    max-width: 350px; /* Make button smaller on mobile */
+    max-width: 350px; 
   }
 }

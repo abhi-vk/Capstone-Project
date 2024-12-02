@@ -130,41 +130,41 @@ body {
 @media screen and (max-width: 600px) {
   .modalContainer {
     padding: 15px 20px;
-    max-width: 95%; /* Reduce width on smaller screens */
+    max-width: 95%; 
   }
 
   .modalTitle {
-    font-size: 1.2rem; /* Smaller font for the title */
+    font-size: 1.2rem; 
     margin-bottom: 10px;
   }
 
   .input {
-    padding: 8px 10px; /* Smaller padding for inputs */
+    padding: 8px 10px; 
     font-size: 0.85rem;
   }
 
   .cardNumberStatic {
-    font-size: 0.8rem; /* Smaller static text */
+    font-size: 0.8rem; 
     margin-right: 4px;
   }
 
   .lastFourDigits {
-    padding: 8px 10px; /* Adjust padding */
+    padding: 8px 10px; 
   }
 
   .buttonGroup {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px; /* Add space between buttons */
+    flex-direction: column; 
+    gap: 10px; 
   }
 
   .saveButton,
   .cancelButton {
-    width: 100%; /* Full width buttons */
-    font-size: 0.95rem; /* Slightly smaller font */
+    width: 100%; 
+    font-size: 0.95rem; 
   }
 
   .removeBtn {
-    font-size: 0.9rem; /* Adjust font size for remove button */
+    font-size: 0.9rem; 
     padding: 10px 0;
   }
 }

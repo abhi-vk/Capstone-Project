@@ -74,7 +74,7 @@ body {
   .heading {
     font-size: 1.4rem; /* Slightly smaller heading for tablets */
     margin: 50px 2rem 20px 2rem; /* Adjust margin for tablets */
-    padding-left: 10px;
+    text-align: center;
   }
 
   .restaurantContainer {

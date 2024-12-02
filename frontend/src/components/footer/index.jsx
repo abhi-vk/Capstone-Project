@@ -21,7 +21,6 @@ export default function Footer() {
         </div>
 
         {/* Middle Section */}
-        {/* Middle Section */}
         <div className={styles.middleSection}>
           <h2>Get Exclusive Deals in your Inbox</h2>
           <div className={styles.subscription}>

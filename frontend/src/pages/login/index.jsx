@@ -21,10 +21,10 @@ export default function Login() {
     e.preventDefault();
     let errors = false;
 
-    // Reset errors
+   
     setFormErrors({ email: null, password: null });
 
-    // Validate email
+   
     if (!formData.email || !formData.email.includes("@") || !formData.email.includes(".")) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
@@ -33,7 +33,7 @@ export default function Login() {
       errors = true;
     }
 
-    // Validate password
+  
     if (!formData.password || formData.password.length < 5) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,

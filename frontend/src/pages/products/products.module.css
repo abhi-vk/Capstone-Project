@@ -155,11 +155,11 @@ body {
   box-shadow: 0 0 5px rgba(255, 127, 0, 0.5);
 }
 
-/* Media Queries for Mobile Responsiveness */
+
 
 /* For mobile screens (max-width: 600px) */
 @media (max-width: 600px) {
-  /* Search Section adjustments */
+  
   .searchSection {
     flex-direction: column;
     align-items: flex-start;
@@ -184,9 +184,9 @@ body {
     /* Centering Product Cards */
     .cardGrid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduce min-width */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
       gap: 20px;
-      justify-items: center; /* Center items horizontally */
+      justify-items: center; 
     }
   
     .card {
@@ -201,9 +201,9 @@ body {
       position: relative;
       padding-right: 15px;
       max-width: 400px;
-      margin: 0 auto; /* Center cards horizontally */
+      margin: 0 auto; 
     }
     .container {
-      margin: 0 2rem; /* Reduced left and right margin to 2rem */
+      margin: 0 2rem; 
     }
 }

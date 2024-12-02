@@ -1,17 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-// Create the CartContext
+
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
-    // Initialize cart from localStorage if available
+   
     const storedCart = localStorage.getItem("cart");
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
   useEffect(() => {
-    // Save cart to localStorage whenever it changes
+    
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
@@ -55,7 +55,7 @@ export const CartProvider = ({ children }) => {
               }
             : item
         )
-        .filter((item) => item.quantity > 0) // Remove item if quantity is 0
+        .filter((item) => item.quantity > 0) 
     );
   };
 

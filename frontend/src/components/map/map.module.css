@@ -84,8 +84,8 @@ body {
     .infoCard {
         top: 5%;
         left: 5%;
-        width: 200px; /* Adjust card width for smaller screens */
-        font-size: 14px; /* Reduce font size */
+        width: 200px; 
+        font-size: 14px; 
     }
 }
 

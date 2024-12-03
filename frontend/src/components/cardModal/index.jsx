@@ -77,7 +77,7 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContainer}>
-        <h2 className={styles.modalTitle}>Add/Edit Card Details</h2>
+        <h2 className={styles.modalTitle}>Payment Card Details</h2>
         <form>
           <div className={styles.formGroup}>
             <label className={styles.label}>Card Number</label>
@@ -157,7 +157,9 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
             </button>
           </div>
         </form>
+        
       </div>
+      
     </div>
   );
 };

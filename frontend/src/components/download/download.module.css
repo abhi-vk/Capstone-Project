@@ -166,7 +166,7 @@ body {
 /* Small screens (up to 767px) */
 @media (max-width: 767px) {
   .container {
-    margin: 10px auto;
+    margin: 10px 2rem;
     padding: 10px;
   }
 

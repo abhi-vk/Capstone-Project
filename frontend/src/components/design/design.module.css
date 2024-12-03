@@ -10,27 +10,28 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
     justify-content: center;
     align-items: center;
-    margin: 20px 5rem;
+    gap: 15px; /* Spacing between cards */
+    margin: 40px 5rem;
 }
 
+/* Default for all screen sizes */
 .card {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 650px;
     height: auto;
-    aspect-ratio: 7 / 4; 
+    aspect-ratio: 7 / 4;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhances the hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .image {
@@ -62,8 +63,8 @@ body {
     z-index: 3;
     color: #fff;
     bottom: 10%;
-    left: 10%;
-    right: 10%;
+    left: 5%;
+    right: 5%;
     text-align: left;
 }
 
@@ -74,7 +75,7 @@ body {
     border-radius: 5px;
     display: inline-block;
     margin-bottom: 10px;
-    font-size: 1rem; /* Ensures consistent font size */
+    font-size: 1rem;
 }
 
 .content p {
@@ -87,7 +88,6 @@ body {
 .content h2 {
     font-size: 1.8rem;
     font-weight: bold;
-
 }
 
 .button {
@@ -107,74 +107,30 @@ body {
     background-color: #ff9a33;
 }
 
-/* Responsive Adjustments */
-
-/* Large Screens (up to 1024px) */
+/* Tablets (up to 1024px) */
 @media (max-width: 1024px) {
     .container {
-        margin: 20px 3rem;
-        gap: 12px;
-    }
-
-    .card {
-        max-width: 600px;
-    }
-
-    .content h6 {
-        font-size: 0.9rem;
-    }
-
-    .content h2 {
-        font-size: 1.6rem;
-    }
-
-    .content p {
-        font-size: 0.95rem;
-    }
-
-    .button {
-        font-size: 13px;
-    }
-}
-
-/* Tablets (up to 768px) */
-@media (max-width: 768px) {
-    .container {
         margin: 20px 2rem;
-        gap: 10px;
+        gap: 16px;
+        flex-direction: column; 
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .card {
-        max-width: 500px;
-    }
-
-    .content h6 {
-        font-size: 0.85rem;
-    }
-
-    .content h2 {
-        font-size: 1.4rem;
-    }
-
-    .content p {
-        font-size: 0.9rem;
-    }
-
-    .button {
-        font-size: 12px;
-        padding: 8px 16px;
+        width: 100%; 
     }
 }
 
 /* Mobile Screens (up to 480px) */
 @media (max-width: 480px) {
     .container {
-        margin: 10px 1rem;
-        gap: 8px;
+        margin: 10px 2rem;
+        gap: 10px;
     }
 
     .card {
-        max-width: 100%; /* Full-width on small screens */
+        width: 100%; 
     }
 
     .content h6 {

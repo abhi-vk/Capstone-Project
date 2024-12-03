@@ -252,6 +252,9 @@ body {
     flex: none;
     width: 100%;
   }
+  .appLinks img{
+    width: 300px;
+  }
   .leftSection{
     text-align: center;
   }

@@ -163,7 +163,11 @@ body {
       flex-direction: column;
       padding: 1.5rem;
     }
-  
+    .container{
+      padding: 15px;
+      margin: 20px 2rem;
+     
+    }
     .infoCards {
       gap: 1.5rem;
     }
@@ -195,10 +199,12 @@ body {
     .infoCards {
       flex-direction: column; /* Single column layout for cards */
       gap: 1rem;
+      align-items: center;
     }
   
     .card {
       flex: 1 1 100%; /* Full width for each card */
+
     }
   
     .questionButton {

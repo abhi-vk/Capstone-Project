@@ -74,7 +74,7 @@ body {
 }
 
 .backButton {
-  background-color: #ff9100;
+  background-color: #FC8A06;
   color: white;
   border: none;
   padding: 12px 25px;
@@ -85,7 +85,7 @@ body {
 }
 
 .backButton:hover {
-  background-color: #ff7700;
+  background-color: #FC8A06;
 }
 
 /* Media Queries for responsiveness */
@@ -93,62 +93,62 @@ body {
 /* Mobile (up to 600px) */
 @media (max-width: 600px) {
   .title {
-    font-size: 1.5rem; /* Adjust title size for mobile */
+    font-size: 1.3rem; 
   }
 
   .subtitle {
-    font-size: 1rem; /* Adjust subtitle size for mobile */
+    font-size: 0.8rem; 
   }
 
   .itemList {
-    width: 90%; /* Increase item list width for mobile */
+    width: 90%; 
     padding: 10px;
   }
 
   .item {
-    font-size: 0.9rem; /* Adjust item font size for better readability */
+    font-size: 0.8rem;
   }
 
   .backButton {
-    font-size: 14px; /* Slightly smaller button font size */
-    padding: 10px 20px; /* Adjust padding for smaller screen */
+    font-size: 14px; 
+    padding: 10px 20px; 
   }
 }
 
 /* Tablet (600px to 900px) */
 @media (max-width: 900px) {
   .title {
-    font-size: 1.8rem; /* Adjust title for tablet */
+    font-size: 1.5rem; 
   }
 
   .subtitle {
-    font-size: 1.1rem; /* Adjust subtitle for tablet */
+    font-size: 1.1rem; 
   }
 
   .itemList {
-    width: 85%; /* Adjust width for tablet */
+    width: 85%; 
   }
 
   .backButton {
-    font-size: 15px; /* Slightly smaller button font size */
+    font-size: 15px; 
   }
 }
 
 /* Large screen (900px and above) */
 @media (min-width: 900px) {
   .title {
-    font-size: 2.2rem; /* Larger title for large screens */
+    font-size: 2.2rem; 
   }
 
   .subtitle {
-    font-size: 1.3rem; /* Larger subtitle for large screens */
+    font-size: 1.3rem; 
   }
 
   .itemList {
-    width: 80%; /* Set item list width */
+    width: 80%; 
   }
 
   .backButton {
-    font-size: 16px; /* Default button size */
+    font-size: 16px; 
   }
 }

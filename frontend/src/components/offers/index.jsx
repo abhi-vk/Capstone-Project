@@ -55,7 +55,7 @@ const Offers = () => {
           <div
             key={offer.id}
             className={styles.card}
-            style={{ backgroundImage: `url(${offer.image})` }}
+            style={{ backgroundImage: `url(${offer.image})`}}
           >
             <div className={styles.overlay}>
               <span className={styles.offerBadge}>{offer.discount}</span>

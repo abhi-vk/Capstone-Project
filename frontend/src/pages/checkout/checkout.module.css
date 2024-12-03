@@ -167,7 +167,7 @@ body {
     background: #fc8a06;
     color: white;
     padding: 12px;
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     border-radius: 20px;
     width: 100%;
@@ -184,13 +184,15 @@ body {
 @media (max-width: 1024px) {
   .checkoutContainer {
     flex-direction: column;
+    align-items: center;
     padding: 10px;
     margin: 10px;
   }
 
   .leftSection, .rightSection {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 90%;
+    margin: 20px 2rem;
+
     padding: 15px;
   }
 
@@ -241,7 +243,7 @@ body {
 
   .paymentButton {
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -251,8 +253,9 @@ body {
     font-size: 18px;
   }
  .notesInput{
-  width: 300px;
+  width: 250px;
  }
+ 
   .orderItem {
     align-items: flex-start;
     gap: 10px;

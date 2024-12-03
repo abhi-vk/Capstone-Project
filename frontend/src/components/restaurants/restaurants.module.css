@@ -67,6 +67,11 @@ body {
   .restaurantContainer {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid for medium screens */
   }
+  .heading {
+    font-size: 1.4rem; /* Slightly smaller heading for tablets */
+    margin: 50px 2rem 20px 2rem; /* Adjust margin for tablets */
+    text-align: center;
+  }
 }
 
 /* Tablets (up to 768px) */

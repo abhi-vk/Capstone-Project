@@ -203,7 +203,7 @@ body {
   }
   
   /* For screens smaller than 768px (Tablet Portrait) */
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .heroCard {
       margin: 0 1rem;
       height: auto;

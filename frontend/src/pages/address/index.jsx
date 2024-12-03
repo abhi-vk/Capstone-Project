@@ -8,14 +8,12 @@ import {
 import styles from "./address.module.css";
 import Navbar from "../../components/navbar";
 import { useNavigate } from "react-router-dom";
- 
-
 
 const AddressPage = () => {
   const [addresses, setAddresses] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); 
-  const [currentEditId, setCurrentEditId] = useState(null); 
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentEditId, setCurrentEditId] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     addressLine: "",
@@ -67,7 +65,6 @@ const AddressPage = () => {
       console.error("Error adding address:", error);
     }
   };
-
 
   // Update an existing address
   const handleUpdateAddress = async () => {
@@ -129,7 +126,14 @@ const AddressPage = () => {
   return (
     <>
       <Navbar />
-      <h2 className={styles.prevIcon}><img onClick={() =>navigate(-1)} className={styles.backIcon}  src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"/>Your Addresses</h2>
+      <h2 className={styles.prevIcon}>
+        <img
+          onClick={() => navigate(-1)}
+          className={styles.backIcon}
+          src="https://res.cloudinary.com/dslmuge4f/image/upload/v1732725891/foodapp-images/grbjojv2h5s0gzkxqkzz.png"
+        />
+        Your Addresses
+      </h2>
 
       <div className={styles.addressPage}>
         <div className={styles.addressContainer}>
@@ -138,7 +142,9 @@ const AddressPage = () => {
               className={styles.addAddressCard}
               onClick={() => setShowModal(true)}
             >
-              <p><span>+</span>Add Address</p>
+              <p>
+                <span>+</span>Add Address
+              </p>
             </div>
           ) : (
             <>
@@ -149,7 +155,9 @@ const AddressPage = () => {
                   setShowModal(true);
                 }}
               >
-                <p><span>+</span>Add Address</p>
+                <p>
+                  <span>+</span>Add Address
+                </p>
               </div>
               {addresses.map((address) => (
                 <div key={address._id} className={styles.addressCard}>
@@ -177,7 +185,11 @@ const AddressPage = () => {
 
         {showModal && (
           <div className={styles.modal}>
-            <h3>{isEditing ? "Edit Address" : "Add Address"}</h3>
+            <h3 className={styles.addressHeading}>
+              <span className={styles.locationIcon}></span>
+              {isEditing ? "Edit Address" : "Add Address"}
+            </h3>
+
             <form
               onSubmit={(e) => {
                 e.preventDefault();

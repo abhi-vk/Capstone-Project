@@ -48,7 +48,7 @@ body {
 }
 
 .input {
-  width: 100%;
+  width: 95%;
   padding: 10px 12px;
   border: 1px solid #cccccc;
   border-radius: 6px;
@@ -131,6 +131,7 @@ body {
   .modalContainer {
     padding: 15px 20px;
     max-width: 95%; 
+    margin: 0 20px;
   }
 
   .modalTitle {

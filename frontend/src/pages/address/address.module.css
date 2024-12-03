@@ -137,8 +137,8 @@ body {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
-  border: 1px solid #fc8a06;
-  width: 90%;
+  border: 1px solid white;
+  width: 70%;
   max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -150,6 +150,30 @@ body {
   text-align: center;
   font-size: 20px;
 }
+.locationIcon {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50% 50% 50% 0%;
+  transform: rotate(-45deg);
+  display: inline-block;
+  position: relative;
+  margin-right: 8px;
+}
+
+.locationIcon::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .modal form {
   display: flex;
@@ -245,4 +269,5 @@ body {
   .addressCard p {
     font-size: 12px;
   }
+  
 }

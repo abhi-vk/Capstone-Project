@@ -10,29 +10,27 @@ const CheckoutPage = () => {
   const { cart: localCart } = useCart();
   const [cart, setCart] = useState([]);
   const [defaultAddress, setDefaultAddress] = useState("Loading address...");
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Assume logged in by default
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    // Check if the cart is passed via URL parameters
     const queryParams = new URLSearchParams(location.search);
     const encodedCart = queryParams.get("cart");
 
     if (encodedCart) {
       try {
         const sharedCart = JSON.parse(decodeURIComponent(encodedCart));
-        setCart(sharedCart); // Use shared cart
+        setCart(sharedCart);
       } catch (error) {
         console.error("Invalid cart data in URL:", error);
-        setCart([]); // Fallback to empty cart if URL data is invalid
+        setCart([]);
       }
     } else {
       setCart(localCart); // Fallback to local cart
     }
-  }, [location.search, localCart]);
 
-  // Fetch the default address when the component mounts
-  useEffect(() => {
+    // Check authentication status via getAddresses
     const fetchDefaultAddress = async () => {
       try {
         const addresses = await getAddresses();
@@ -40,20 +38,20 @@ const CheckoutPage = () => {
         setDefaultAddress(
           defaultAddr ? defaultAddr.addressLine : "No address set"
         );
+        setIsLoggedIn(true); // User is logged in if the call succeeds
       } catch (error) {
-        setDefaultAddress("Error fetching address");
+        setDefaultAddress("No address available");
+        setIsLoggedIn(false); // Assume user is not logged in if the call fails
         console.error("Error fetching addresses:", error);
       }
     };
 
     fetchDefaultAddress();
-  }, []);
+  }, [location.search, localCart]);
 
   const calculateSubtotal = () => {
     return cart.reduce((sum, item) => sum + item.totalPrice, 0);
   };
-
-  const isReadOnly = new URLSearchParams(location.search).has("cart");
 
   return (
     <>
@@ -70,8 +68,8 @@ const CheckoutPage = () => {
         <div className={styles.leftSection}>
           <div className={styles.orderList}>
             {cart.map((item) => (
-              <>
-                <div key={item._id} className={styles.orderItem}>
+              <React.Fragment key={item._id}>
+                <div className={styles.orderItem}>
                   <img
                     src={item.imageUrl}
                     alt={item.itemName}
@@ -84,9 +82,8 @@ const CheckoutPage = () => {
                   <p className={styles.itemPrice}>₹{item.totalPrice}</p>
                 </div>
                 <div className={styles.line}></div>
-              </>
+              </React.Fragment>
             ))}
-
             <div className={styles.notesSection}>
               <label htmlFor="orderNotes">Notes</label>
               <input
@@ -99,14 +96,15 @@ const CheckoutPage = () => {
           </div>
         </div>
         <div className={styles.rightSection}>
-          <div className={styles.deliveryAddress} onClick={() => navigate("/address")}>
+          <div
+            className={styles.deliveryAddress}
+            onClick={() => isLoggedIn && navigate("/address")}
+          >
             <img src="assets/Location_1.png" />
-            <button  disabled={isReadOnly}>
+            <button disabled={!isLoggedIn}>
               <p>Delivery Address</p>
               {defaultAddress}
             </button>
-            
-
           </div>
           <div className={styles.line}></div>
           <div className={styles.priceDetails}>
@@ -124,14 +122,22 @@ const CheckoutPage = () => {
               <span>₹{(calculateSubtotal() + 10).toFixed(2)}</span>
             </p>
           </div>
-          {!isReadOnly && (
+          <div className={styles.cartWrapper}>
             <button
-              onClick={() => navigate("/payment")}
-              className={styles.paymentButton}
+              onClick={() => isLoggedIn && navigate("/payment")}
+              className={`${styles.paymentButton} ${
+                !isLoggedIn ? styles.paymentButtonDisabled : ""
+              }`}
+              disabled={!isLoggedIn}
             >
               Choose Payment Method
             </button>
-          )}
+            {!isLoggedIn && (
+              <div className={styles.hoverMessage}>
+                Please log in to proceed with payment.
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <Restaurants />

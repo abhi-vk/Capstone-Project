@@ -70,7 +70,7 @@ const Navbar = () => {
   const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0);
 
   useEffect(() => {
-    // Close menu when clicking outside of the navbar
+    
     if (isMenuOpen) {
       window.addEventListener("click", closeMenu);
     } else {
@@ -104,16 +104,30 @@ const Navbar = () => {
           >
             Change Location
           </a>
-          <button className={styles.cartBtn} onClick={toggleCartModal}>
-            <div className={styles.cartCol}>
-              <img src="/assets/Cart.png" alt="Cart" />
-              <span>My Cart</span>
-            </div>
-            <div className={styles.cartCol}>£{totalPrice.toFixed(2)}</div>
-            <div className={styles.cartCol}>
-              <img src="/assets/Forward Button.png" alt="Forward" />
-            </div>
-          </button>
+          <div className={styles.cartWrapper}>
+  <button
+    className={`${styles.cartBtn} ${
+      !userName ? styles.cartBtnDisabled : ""
+    }`}
+    onClick={userName ? toggleCartModal : null}
+    disabled={!userName}
+  >
+    <div className={styles.cartCol}>
+      <img src="/assets/Cart.png" alt="Cart" />
+      <span>My Cart</span>
+    </div>
+    <div className={styles.cartCol}>£{totalPrice.toFixed(2)}</div>
+    <div className={styles.cartCol}>
+      <img src="/assets/Forward Button.png" alt="Forward" />
+    </div>
+  </button>
+
+  {/* Hover Message */}
+  {!userName && (
+    <div className={styles.hoverMessage}>You need to log in to access the cart.</div>
+  )}
+</div>
+
         </div>
       </div>
 

@@ -8,6 +8,7 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
     cvc: "",
     nameOnCard: "",
   });
+  const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -23,23 +24,46 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
     }
   }, [selectedCard]);
 
+  const validate = () => {
+    const newErrors = {};
+
+    if (cardDetails.lastFourDigits.length !== 4 || isNaN(cardDetails.lastFourDigits)) {
+      newErrors.lastFourDigits = "Card number must be exactly 4 digits.";
+    }
+
+    const expirationRegex = /^(0[1-9]|1[0-2])\/\d{2}$/; // MM/YY format
+    if (!expirationRegex.test(cardDetails.expiration)) {
+      newErrors.expiration = "Expiration must be in MM/YY format.";
+    }
+
+    if (cardDetails.cvc.length !== 3 || isNaN(cardDetails.cvc)) {
+      newErrors.cvc = "CVC must be exactly 3 digits.";
+    }
+
+    if (!cardDetails.nameOnCard.trim()) {
+      newErrors.nameOnCard = "Name on card is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name === "lastFourDigits" && value.length > 4) return;
+    if (name === "cvc" && value.length > 3) return;
 
     setCardDetails({ ...cardDetails, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // Clear error for the field being edited
   };
 
   const handleSave = async () => {
-    if (cardDetails.lastFourDigits.length !== 4) {
-      alert("Card number must include 4 digits.");
-      return;
-    }
+    if (!validate()) return; // Stop if validation fails
+
     try {
       setIsLoading(true);
       await onSave(cardDetails); 
-      window.location.reload();// Call parent onSave
+      window.location.reload();
       onClose();
     } catch (error) {
       alert("Error saving card: " + error.message);
@@ -69,6 +93,9 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
                 onChange={handleChange}
               />
             </div>
+            {errors.lastFourDigits && (
+              <span className={styles.errorMessage}>{errors.lastFourDigits}</span>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -81,6 +108,9 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
               value={cardDetails.expiration}
               onChange={handleChange}
             />
+            {errors.expiration && (
+              <span className={styles.errorMessage}>{errors.expiration}</span>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -94,6 +124,9 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
               value={cardDetails.cvc}
               onChange={handleChange}
             />
+            {errors.cvc && (
+              <span className={styles.errorMessage}>{errors.cvc}</span>
+            )}
           </div>
 
           <div className={styles.formGroup}>
@@ -105,6 +138,9 @@ const CardModal = ({ isOpen, onClose, onSave, cardDetails: selectedCard }) => {
               value={cardDetails.nameOnCard}
               onChange={handleChange}
             />
+            {errors.nameOnCard && (
+              <span className={styles.errorMessage}>{errors.nameOnCard}</span>
+            )}
           </div>
 
           <div className={styles.buttonGroup}>

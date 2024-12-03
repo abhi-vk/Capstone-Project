@@ -8,10 +8,10 @@ body {
 
 /* Heading */
 .heading {
-  font-size: 1.5rem; /* Keep original heading size */
+  font-size: 1.5rem; 
   font-weight: bold;
   text-align: left;
-  margin: 70px 5rem 30px 5rem; /* Original margin preserved */
+  margin: 70px 5rem 30px 5rem; 
   padding-left: 20px;
   color: #333;
 }
@@ -19,10 +19,10 @@ body {
 /* Restaurant Container */
 .restaurantContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible grid for responsiveness */
-  gap: 15px; /* Space between cards */
-  padding: 0 20px 20px 20px; /* Original padding retained */
-  margin: 0px 5rem; /* Original margin preserved */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 15px;
+  padding: 0 20px 20px 20px; 
+  margin: 0px 5rem; 
 }
 
 /* Restaurant Card */
@@ -32,8 +32,8 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 180px; /* Keep original max-width */
-  height: auto; /* Maintain height */
+  max-width: 180px; 
+  height: auto; 
 }
 
 .restaurantCard:hover {
@@ -44,7 +44,7 @@ body {
 /* Restaurant Image */
 .restaurantImage {
   width: 100%;
-  height: auto; /* Original height retained */
+  height: auto; 
   object-fit: cover;
 }
 
@@ -55,9 +55,9 @@ body {
   font-weight: bold;
   text-align: center;
   color: white;
-  background-color: #FC8A06; /* Orange background */
+  background-color: #FC8A06; 
   text-transform: capitalize;
-  margin-top: -1px; /* Original alignment preserved */
+  margin-top: -1px; 
 }
 
 /* Responsive Adjustments */
@@ -65,11 +65,11 @@ body {
 /* Large Screens (up to 1024px) */
 @media (max-width: 1024px) {
   .restaurantContainer {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust grid for medium screens */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
   }
   .heading {
-    font-size: 1.4rem; /* Slightly smaller heading for tablets */
-    margin: 50px 2rem 20px 2rem; /* Adjust margin for tablets */
+    font-size: 1.4rem; 
+    margin: 50px 2rem 20px 2rem; 
     text-align: center;
   }
 }
@@ -77,53 +77,53 @@ body {
 /* Tablets (up to 768px) */
 @media (max-width: 768px) {
   .heading {
-    font-size: 1.4rem; /* Slightly smaller heading for tablets */
-    margin: 50px 2rem 20px 2rem; /* Adjust margin for tablets */
-    text-align: center;
+    font-size: 1.4rem; 
+    margin: 50px 2rem 20px 2rem; 
+    text-align: left;
   }
 
   .restaurantContainer {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduce card size for tablets */
-    margin: 0px 2rem; /* Adjust margin for tablets */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    margin: 0px 2rem; 
   }
 
   .restaurantCard {
-    max-width: 150px; /* Adjust card size for tablets */
+    max-width: 150px; 
   }
 
   .restaurantImage {
-    height: 120px; /* Adjust image height for tablets */
+    height: 120px; 
   }
 
   .restaurantName {
-    font-size: 13px; /* Slightly smaller text for tablets */
+    font-size: 13px; 
   }
 }
 
 /* Mobile Screens (up to 480px) */
 @media (max-width: 480px) {
   .heading {
-    font-size: 1.3rem; /* Slightly smaller for small screens */
-    text-align: center; /* Center-align heading for mobile */
-    margin: 30px 1rem 20px 1rem; /* Adjust margin for mobile */
+    font-size: 1.3rem; 
+    text-align: left; 
+    margin: 30px 1rem 20px 1rem; 
   }
 
   .restaurantContainer {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Compact grid for mobile */
-    gap: 10px; /* Slightly reduce gap */
-    margin: 0px 1rem; /* Reduce margin for mobile */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    gap: 10px;
+    margin: 0px 1rem; 
   }
 
   .restaurantCard {
-    max-width: 140px; /* Smaller card size for mobile */
+    max-width: 140px;
   }
 
   .restaurantImage {
-    height: 100px; /* Adjust image height for mobile */
+    height: 100px; 
   }
 
   .restaurantName {
-    font-size: 12px; /* Slightly smaller text for mobile */
+    font-size: 12px; 
     padding: 8px 0;
   }
 }

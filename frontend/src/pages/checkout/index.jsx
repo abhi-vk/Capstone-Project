@@ -134,7 +134,7 @@ const CheckoutPage = () => {
             </button>
             {!isLoggedIn && (
               <div className={styles.hoverMessage}>
-                Please log in to proceed with payment.
+                Please log in and add default address to proceed with payment.
               </div>
             )}
           </div>
